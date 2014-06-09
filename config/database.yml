@@ -4,3 +4,9 @@ development:
   username: postgres
   password: Forward_55
   database: railstest
+production:
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: Forward_55
+  database: railstest
