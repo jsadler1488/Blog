@@ -1,5 +1,6 @@
 development:
   adapter: postgresql
   host: localhost
-  username: user
-  database: app-dev
+  username: postgres
+  password: Forward_55
+  database: railstest
