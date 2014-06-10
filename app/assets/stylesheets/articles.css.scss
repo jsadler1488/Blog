@@ -7,7 +7,7 @@ $primary-link-color: #FF8800;
 $hover-link-color: #CC8833;
 $no-text-decoration: none;
 $body-margins: 0px;
-
+$border-top-left: 1px solid #EEEEEF;
 
 a:link {
   color: $primary-link-color;
@@ -28,10 +28,45 @@ body.header
 {
   margin:0px;  
 }
+div{
+  font-family: Segoe UI, sans-serif;    
+}
+
 div.header {
   background-color:#333333;
   width:100%;
   height:110px;
+}
+
+div.PostHeader{
+  height:30px;
+}
+
+div.menu_item{
+  height:30px;
+  width:125px;
+  float:left;
+  background-color:#333333;
+  text-align:center;
+  border-top:$border-top-left;
+  border-left:$border-top-left;
+}
+
+div.menu_item:hover{
+  height:30px;
+  width:125px;
+  float:left;
+  background-color:#FF8800;
+  color: #333333;
+  text-align:center;
+  border-top:$border-top-left;
+  border-left:$border-top-left;
+}
+
+span.vMiddle{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 span.header {

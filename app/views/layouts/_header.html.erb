@@ -1,14 +1,30 @@
 <div class="header">
 	<%= image_tag "logo.png"%>
-	<span class="header">
-		<% if user_signed_in? %>
-			<%= link_to 'Sign Out', destroy_user_session_path, 
-									method: :delete %>
-			<%= link_to 'Edit Profile', edit_user_registration_path %>
-		<% else  %>
-			<%= link_to 'Sign In',  new_user_session_path %>	
-			<%= link_to 'Register', new_user_registration_path %>
+</div>
+<div class="PostHeader">		
+	<% if user_signed_in? %>
+		<%= link_to destroy_user_session_path, 
+										method: :delete do%>
+			<div class="menu_item">
+				<span class="vMiddle">Sign Out</span>			
+			</div>
 		<%end%>
-	</span>
+		<%= link_to(edit_user_registration_path) do %>
+			<div class="menu_item">
+				<span class="vMiddle">Edit Profile</span>
+			</div>
+		<%end%>		
+	<% else  %>				
+		<%= link_to(new_user_session_path) do%>
+				<div class="menu_item">
+					<span class="vMiddle">Sign In</span>
+				</div>
+			<%end%>
+			<%= link_to(new_user_registration_path) do %>
+				<div class="menu_item">
+					<span class="vMiddle">Register</span>
+				</div>
+			<%end%>
+	<%end%>
 </div>
 
