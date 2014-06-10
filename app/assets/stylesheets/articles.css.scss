@@ -73,3 +73,35 @@ span.header {
   display:inline-block;
   vertical-align:top;
 }
+
+div.DeviseStatusRed {
+  background-color:rgba(255,0,0,0.1);
+  text-align:center;
+  width:300px;
+  position:absolute;
+  left:500px;
+  height:60px;
+  border-radius: 5px;
+  border: 1px solid #FF0000;
+  
+}
+p.DeviseInnerStatusRed {
+  opacity:1.0;
+  color:#FF0000;
+}
+
+div.DeviseStatusGreen {
+  background-color:rgba(0,128,0,0.1);
+  text-align:center;
+  width:300px;
+  position:absolute;
+  left:500px;
+  height:60px;
+  border-radius: 5px dotted;
+  border: 1px dotted #00FF00;
+  
+}
+p.DeviseInnerStatusGreen {
+  opacity:1.0;
+  color:#00AA00;
+}

@@ -1,6 +1,7 @@
 <div class="header">
 	<%= image_tag "logo.png"%>
 </div>
+
 <div class="PostHeader">		
 	<% if user_signed_in? %>
 		<%= link_to destroy_user_session_path, 
@@ -17,14 +18,28 @@
 	<% else  %>				
 		<%= link_to(new_user_session_path) do%>
 				<div class="menu_item">
-					<span class="vMiddle">Sign In</span>
+					<span class="vMiddle">Client Sign In</span>
 				</div>
 			<%end%>
 			<%= link_to(new_user_registration_path) do %>
 				<div class="menu_item">
-					<span class="vMiddle">Register</span>
+					<span class="vMiddle">Client Register</span>
+				</div>
+			<%end%>
+			
+			<%= link_to(new_provider_session_path) do %>
+				<div class="menu_item">
+					<span class="vMiddle">Provider Sign In</span>
+				</div>
+			<%end%>
+			<%= link_to(new_provider_registration_path) do %>
+				<div class="menu_item">
+					<span class="vMiddle">Provider Register</span>
 				</div>
 			<%end%>
 	<%end%>
+	
+			<%= render 'layouts/devise_status'%>
 </div>
+
 
