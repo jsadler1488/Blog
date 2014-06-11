@@ -15,6 +15,18 @@
 				<span class="vMiddle">Edit Profile</span>
 			</div>
 		<%end%>		
+	<% elsif provider_signed_in? %>
+		<%= link_to destroy_provider_session_path, 
+										method: :delete do%>
+			<div class="menu_item">
+				<span class="vMiddle">Sign Out</span>			
+			</div>
+		<%end%>
+		<%= link_to(edit_provider_registration_path) do %>
+			<div class="menu_item">
+				<span class="vMiddle">Edit Profile</span>
+			</div>
+		<%end%>	
 	<% else  %>				
 		<%= link_to(new_user_session_path) do%>
 				<div class="menu_item">

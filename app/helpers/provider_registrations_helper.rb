@@ -1,0 +1,2 @@
+module ProviderRegistrationsHelper
+end
