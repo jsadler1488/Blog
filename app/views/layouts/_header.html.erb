@@ -1,5 +1,18 @@
 <div class="header">
-	<%= link_to image_tag('logo.png'), root_path%>
+	<div class="innerHeader">
+		<%= link_to image_tag('logo.png'), root_path%>
+	</div>
+	<% if user_signed_in? || provider_signed_in?%>
+		<% if current_user %>
+			<div class="actionBar">				
+				Signed in as: <%= current_user.first_name %> <%= current_user.last_name%>				
+			</div>
+		<% elsif current_provider %>
+			<div class="actionBar">				
+				Signed in as: <%= current_provider.first_name %> <%= current_provider.last_name%>				
+			</div>
+		<%end%>
+	<%end%>
 </div>
 
 <div class="PostHeader">		
