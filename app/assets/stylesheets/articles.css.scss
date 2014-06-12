@@ -46,7 +46,11 @@ div.menu_item{
   height:30px;
   width:150px;
   float:left;
-  background-color:#333333;
+  /* background-color:#333333; */
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #333333), color-stop(1, #444444) );
+  background:-moz-linear-gradient( center top, #333333 5%, #666666 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#444444');
+  
   text-align:center;
   border-top:$border-top-left;
   border-left:$border-top-left;
@@ -56,7 +60,9 @@ div.menu_item:hover{
   height:30px;
   width:150px;
   float:left;
-  background-color:#FF8800;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FF8800), color-stop(1, #FFCC33) );
+  background:-moz-linear-gradient( center top, #FF8800 5%, #FFCC33 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF8800', endColorstr='#FFCC33');
   color: #333333;
   text-align:center;
   border-top:$border-top-left;
@@ -144,7 +150,7 @@ input.submit {
   border:1px solid #444444;
   display:inline-block;
   color:#FF8800;
-  font-family:Segoe UI;
+  font-family:$font-stack;
   font-size:16px;
   font-style:normal;
   height:30px;
