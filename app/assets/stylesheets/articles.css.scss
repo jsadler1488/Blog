@@ -172,3 +172,21 @@ input.submit:active {
   position:relative;
   top:1px;
 }
+
+div.signUpBlockDiv
+{
+  clear:both;
+}
+
+div.signUpLabelDiv{
+  text-align:right; 
+  width:165px;
+  float:left;
+  height:30px;
+}
+
+div.signUpInputDiv{
+  width:100px;
+  float:left; 
+  padding-left:5px;
+}
