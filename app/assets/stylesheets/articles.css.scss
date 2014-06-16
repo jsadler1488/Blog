@@ -57,6 +57,7 @@ div.actionBar {
   transition: all 0.5s;
   position:relative;
   top: -185px;
+  box-shadow:1px 1px 8px rgba(33, 33, 33, 0.9);
 }
 
 div.actionDivStatus {
@@ -91,6 +92,7 @@ div.menu_item{
   text-align:center;
   border-top:$border-top-left;
   border-left:$border-top-left;
+  box-shadow: 1px 1px 8px rgba(33, 33, 33, 0.5);
 }
 
 div.menu_item:hover{
@@ -150,14 +152,14 @@ input.submit {
   font-size: 16px;
   font-family: $font-stack;
   color:#FF8800;
-  border-radius: 20px;
-  box-shadow:inset 0px 1px 0px 0px #333333;
+  border-radius: 10px;
+  box-shadow: 1px 1px 8px rgba(33,33,33,0.9);  
   transition: all 0.5s;  
 }
 
 input.submit:hover {
   background-position: 0 100%;
-  box-shadow:inset 0px 1px 0px 0px #FF8800;
+  box-shadow: 1px 1px 8px #FF8800;
   border:1px solid #FF8800;
   color:#333333;
   cursor:pointer;
@@ -176,6 +178,7 @@ input.submit:active {
 div.signUpBlockDiv
 {
   clear:both;
+  height:50px;
 }
 
 div.signUpLabelDiv{
@@ -190,4 +193,85 @@ div.signUpInputDiv{
   width:100px;
   float:left; 
   padding-left:5px;
+}
+
+input.text_field{
+  background-image:linear-gradient(#333333, #777777);
+  border-radius:10px;
+  border-color:#333333;
+  box-shadow: 1px 1px 8px rgba(33,33,33,0.9);
+  padding:5px;
+  height:20px;
+  color: #FF8800;
+  font-size:12pt;
+	border:0;
+}
+
+input.text_field:focus {
+	box-shadow: 0px 1px 8px #F48004;
+	border:0;
+}
+
+label.labelStyle {
+	color: linear-gradient(#FF8800, #FF8800);
+text-shadow: 1px 1px 8px rgba(88,88,88,0.5);
+  
+}
+
+div.check_box {
+	width: 120px;
+	height: 40px;
+	background: #333;
+	margin: 20px 60px;
+
+	border-radius: 50px;
+	position: relative;
+}
+
+div.check_box:before {
+	content: 'On';
+	position: absolute;
+	top: 12px;
+	left: 13px;
+	height: 2px;
+	color: #FF8800;
+	font-size: 16px;
+}
+
+div.check_box:after {
+	content: 'Off';
+	position: absolute;
+	top: 12px;
+	left: 84px;
+	height: 2px;
+	color: #111;
+	font-size: 16px;
+}
+
+div.check_box label {
+	display: block;
+	width: 52px;
+	height: 22px;
+	border-radius: 50px;
+
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 12px;
+	background: #ddd;
+}
+
+div.check_box input[type=checkbox]:checked + label {
+	left: 60px;
+	background: #FF8800;
+}
+
+input[type=checkbox] {
+	visibility: hidden;
 }

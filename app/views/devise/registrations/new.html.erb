@@ -11,24 +11,24 @@
 	<div style="width:100%; padding-top:15px">
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :first_name, "First Name:" %>
+				<%= f.label :first_name, "First Name:", {class: 'labelStyle'} %>
 			</div>
 			<div class="signUpInputDiv">
-				<%= f.text_field :first_name %>
+				<%= f.text_field :first_name, {class: 'text_field'}  %>
 			</div>
 		</div><div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :last_name, "Last Name:" %>
 			</div>
 			<div class="signUpInputDiv">
-				<%= f.text_field :last_name %>
+				<%= f.text_field :last_name, {class: 'text_field'}  %>
 			</div>
 		</div><div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :email, "Email:"%>
 			</div>
 			<div class="signUpInputDiv">
-				<%= f.email_field :email %>
+				<%= f.email_field :email, {class: 'text_field'}  %>
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
@@ -36,7 +36,7 @@
 				<%= f.label :password, "Password:" %>
 			</div>
 			<div class="signUpInputDiv">
-				<%= f.password_field :password, autocomplete: "off" %>
+				<%= f.password_field :password, { autocomplete: "off", class: 'text_field'}  %>
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
@@ -44,7 +44,7 @@
 				<%= f.label :password_confirmation, "Password Confirmation:" %>
 			</div>
 			<div class="signUpInputDiv">
-				<%= f.password_field :password_confirmation, autocomplete: "off"%>
+				<%= f.password_field :password_confirmation, {autocomplete: "off", class: 'text_field'} %>
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
