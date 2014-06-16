@@ -3,91 +3,85 @@
 		<%= link_to image_tag('logo.png'), root_path%>
 	</div>
 	<% if user_signed_in? || provider_signed_in?%>
-		<% if current_user %>
-			<div class="actionBar">			
-				<div>
-					<span><%= link_to destroy_user_session_path, 
-										method: :delete do%>Sign Out<%end%>
-					</span>
-				</div>
-				<div>
-					<span><%= link_to(edit_user_registration_path) do %>Edit Profile<%end%></span>
-				</div>
-				<div class="actionDivStatus">					
-						Client Signed in as: <%= current_user.first_name %> <%= current_user.last_name%>
-				</div>
-				
-			</div>
-		<% elsif current_provider %>
-			<div class="actionBar">	
-				<div>
-					<span><%= link_to destroy_provider_session_path, 
-										method: :delete do%>Sign Out<%end%>
-					</span>
-				</div>
-				<div>
-					<span><%= link_to(edit_provider_registration_path) do %>Edit Profile<%end%></span>
-				</div>
-				<div class="actionDivStatus">			
-					<span>			
-						Provider Signed in as: <%= current_provider.first_name %> <%= current_provider.last_name%>
-					</span>				
-				</div>
-			</div>
-		<%end%>
+	<% if current_user %>
+	<div class="actionBar">
+		<div>
+			<span><%= link_to destroy_user_session_path,
+				method: :delete do%>Sign Out<%end%> </span>
+		</div>
+		<div>
+			<span><%= link_to(edit_user_registration_path) do %>Edit Profile<%end%></span>
+		</div>
+		<div class="actionDivStatus">
+			Client Signed in as: <%= current_user.first_name %> <%= current_user.last_name%>
+		</div>
+
+	</div>
+	<% elsif current_provider %>
+	<div class="actionBar">
+		<div>
+			<span><%= link_to destroy_provider_session_path,
+				method: :delete do%>Sign Out<%end%> </span>
+		</div>
+		<div>
+			<span><%= link_to(edit_provider_registration_path) do %>Edit Profile<%end%></span>
+		</div>
+		<div class="actionDivStatus">
+			<span> Provider Signed in as: <%= current_provider.first_name %> <%= current_provider.last_name%> </span>
+		</div>
+	</div>
+	<%end%>
 	<%end%>
 </div>
 
-<div class="PostHeader">		
+<div class="PostHeader">
 	<% if user_signed_in? %>
-		<%= link_to destroy_user_session_path, 
-										method: :delete do%>
-			<div class="menu_item">
-				<span class="vMiddle">Sign Out</span>			
-			</div>
-		<%end%>
-		<%= link_to(edit_user_registration_path) do %>
-			<div class="menu_item">
-				<span class="vMiddle">Edit Profile</span>
-			</div>
-		<%end%>		
-	<% elsif provider_signed_in? %>
-		<%= link_to destroy_provider_session_path, 
-										method: :delete do%>
-			<div class="menu_item">
-				<span class="vMiddle">Sign Out</span>			
-			</div>
-		<%end%>
-		<%= link_to(edit_provider_registration_path) do %>
-			<div class="menu_item">
-				<span class="vMiddle">Edit Profile</span>
-			</div>
-		<%end%>	
-	<% else  %>				
-		<%= link_to(new_user_session_path) do%>
-				<div class="menu_item">
-					<span class="vMiddle">Client Sign In</span>
-				</div>
-			<%end%>
-			<%= link_to(new_user_registration_path) do %>
-				<div class="menu_item">
-					<span class="vMiddle">Client Register</span>
-				</div>
-			<%end%>
-			
-			<%= link_to(new_provider_session_path) do %>
-				<div class="menu_item">
-					<span class="vMiddle">Provider Sign In</span>
-				</div>
-			<%end%>
-			<%= link_to(new_provider_registration_path) do %>
-				<div class="menu_item">
-					<span class="vMiddle">Provider Register</span>
-				</div>
-			<%end%>
+	<%= link_to destroy_user_session_path,
+	method: :delete do%>
+	<div class="menu_item">
+		<span class="vMiddle">Sign Out</span>
+	</div>
 	<%end%>
-	
-			<%= render 'layouts/devise_status'%>
-</div>
+	<%= link_to(edit_user_registration_path) do %>
+	<div class="menu_item">
+		<span class="vMiddle">Edit Profile</span>
+	</div>
+	<%end%>
+	<% elsif provider_signed_in? %>
+	<%= link_to destroy_provider_session_path,
+	method: :delete do%>
+	<div class="menu_item">
+		<span class="vMiddle">Sign Out</span>
+	</div>
+	<%end%>
+	<%= link_to(edit_provider_registration_path) do %>
+	<div class="menu_item">
+		<span class="vMiddle">Edit Profile</span>
+	</div>
+	<%end%>
+	<% else  %>
+	<%= link_to(new_user_session_path) do%>
+	<div class="menu_item">
+		<span class="vMiddle">Client Sign In</span>
+	</div>
+	<%end%>
+	<%= link_to(new_user_registration_path) do %>
+	<div class="menu_item">
+		<span class="vMiddle">Client Register</span>
+	</div>
+	<%end%>
 
+	<%= link_to(new_provider_session_path) do %>
+	<div class="menu_item">
+		<span class="vMiddle">Provider Sign In</span>
+	</div>
+	<%end%>
+	<%= link_to(new_provider_registration_path) do %>
+	<div class="menu_item">
+		<span class="vMiddle">Provider Register</span>
+	</div>
+	<%end%>
+	<%end%>
+	<%= render 'layouts/devise_status'%>
+</div>
 

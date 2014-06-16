@@ -1,5 +1,5 @@
-<div style="width:70%; margin-left:15%; border: 1px solid #000000">
-	<div style="background-image: linear-gradient(#333333, #666666); color:#FF8800">
+<div class="mainContent">
+	<div class="mainContentHeader">
 		<%= resource_name.capitalize %> Sign up
 	</div>
 
@@ -8,7 +8,7 @@
 	<%= devise_error_messages! %>
 </div>
 
-	<div style="width:100%; padding-top:15px">
+	<div class="mainContentPrepare">
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :first_name, "First Name:", {class: 'labelStyle'} %>
@@ -48,8 +48,8 @@
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
-			<div>
-				<%= f.submit "Sign up", {class: 'submit'} %>
+			<div class="signButtonDiv">
+				<%= f.submit "Sign up", { class: 'submit' } %>
 			</div>
 		</div>
 	</div>

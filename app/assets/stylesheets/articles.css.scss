@@ -10,7 +10,7 @@ $body-margins: 0px;
 $border-top-left: 1px solid #EEEEEF;
 $menu-gradient-start: #333333;
 $menu-gradient-stop: #666666;
-
+$menu-text-shadow: 1px 1px 1px rgba(255,88,00,1.0);
 a:link {
   color: $primary-link-color;
   text-decoration: $no-text-decoration;
@@ -76,6 +76,7 @@ div.innerHeader{
 
 div.PostHeader{
   height:30px;
+  background-image: linear-gradient(#333333, #666666);
 }
 
 div.menu_item{
@@ -87,13 +88,13 @@ div.menu_item{
   color:#FF8800;
   transition: all 0.5s;  
   height:30px;
-  width:150px;
+  width:14%;
   float:left;  
   text-align:center;
-  border-top:$border-top-left;
-  border-left:$border-top-left;
   box-shadow: 1px 1px 8px rgba(33, 33, 33, 0.5);
+  text-shadow: $menu-text-shadow; 
 }
+
 
 div.menu_item:hover{
   background-position:0 100%;
@@ -112,7 +113,7 @@ span.header {
 }
 
 div.DeviseStatusRed {
-  background-color:rgba(255,0,0,0.1);
+  background-color:rgba(255,0,0,0.3);
   text-align:center;
   width:300px;
   position:absolute;
@@ -128,7 +129,7 @@ p.DeviseInnerStatusRed {
 }
 
 div.DeviseStatusGreen {
-  background-color:rgba(0,128,0,0.1);
+  background-color:rgba(0,128,0,0.3);
   text-align:center;
   width:300px;
   position:absolute;
@@ -175,13 +176,26 @@ input.submit:active {
   top:1px;
 }
 
-div.signUpBlockDiv
+div.signUpBlockDiv 
 {
   clear:both;
-  height:50px;
+  height:45px;
 }
 
-div.signUpLabelDiv{
+div.signInBlockDiv
+{
+  height:45px;
+}
+
+div.signInRememberDiv {
+  text-align:right; 
+  width:425px;
+  float:left;
+  height:25px;
+  padding-top:5px;
+}
+
+div.signUpLabelDiv  {
   text-align:right; 
   width:300px;
   float:left;
@@ -189,10 +203,16 @@ div.signUpLabelDiv{
   padding-top:5px;
 }
 
-div.signUpInputDiv{
+div.signUpInputDiv  {
   width:100px;
   float:left; 
   padding-left:5px;
+}
+
+div.signButtonDiv {
+  float:left;
+  text-align:right;
+  width:425px;
 }
 
 input.text_field{
@@ -201,10 +221,11 @@ input.text_field{
   border-color:#333333;
   box-shadow: 1px 1px 8px rgba(33,33,33,0.9);
   padding:5px;
-  height:20px;
-  color: #FF8800;
-  font-size:12pt;
+  height:25px;
+  color: #FF8800; 
 	border:0;
+	font-family: $font-stack;
+	font-size:16px;
 }
 
 input.text_field:focus {
@@ -218,60 +239,45 @@ text-shadow: 1px 1px 8px rgba(88,88,88,0.5);
   
 }
 
-div.check_box {
-	width: 120px;
-	height: 40px;
-	background: #333;
-	margin: 20px 60px;
-
-	border-radius: 50px;
-	position: relative;
+input[type=checkbox].check_box {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height:1px; 
+  width:1px; 
+  margin:-1px; 
+  padding:0;
+  border:0;
 }
 
-div.check_box:before {
-	content: 'On';
-	position: absolute;
-	top: 12px;
-	left: 13px;
-	height: 2px;
-	color: #FF8800;
-	font-size: 16px;
+input[type=checkbox].check_box + label.check_box_label {
+  padding-left:20px;
+  height:15px; 
+  display:inline-block;
+  line-height:15px;
+  background-repeat:no-repeat;
+  background-position: 0 0;
+  font-size:15px;
+  vertical-align:middle;
+  cursor:pointer;
 }
 
-div.check_box:after {
-	content: 'Off';
-	position: absolute;
-	top: 12px;
-	left: 84px;
-	height: 2px;
-	color: #111;
-	font-size: 16px;
+input[type=checkbox].check_box:checked + label.check_box_label {
+  background-position: 0 -15px;
 }
 
-div.check_box label {
-	display: block;
-	width: 52px;
-	height: 22px;
-	border-radius: 50px;
-
-	-webkit-transition: all .5s ease;
-	-moz-transition: all .5s ease;
-	-o-transition: all .5s ease;
-	-ms-transition: all .5s ease;
-	transition: all .5s ease;
-	cursor: pointer;
-	position: absolute;
-	top: 9px;
-	z-index: 1;
-	left: 12px;
-	background: #ddd;
+.check_box_label{ 
+  background-image:url(/assets/dark-check-orange.png); 
 }
 
-div.check_box input[type=checkbox]:checked + label {
-	left: 60px;
-	background: #FF8800;
+
+
+div.mainContentHeader {
+  background-image: linear-gradient(#333333, #666666); 
+  color:#FF8800
 }
 
-input[type=checkbox] {
-	visibility: hidden;
+div.mainContentPrepare {
+  width:100%; 
+  padding-top:15px
 }
