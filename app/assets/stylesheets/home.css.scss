@@ -5,12 +5,17 @@
 $font-size: 36px;
 $text-shadow: 1px 8px 8px rgba(0,0,0,0.5);
 $text-shadow-hover: 1px 1px 8px rgba(33,33,33,1.0);
-$text-color: #FF8800;
+
+$theme-forecolor: #CCCC00;
+$theme-gradient: #DDDDAA;
+$theme-background: #333333;
+$theme-background-gradient: #666666;
+
 .titleDiv{
   margin-top:20px;
   font-size: $font-size;
   text-shadow: $text-shadow;
-  color:#FF8800;  
+  color:$theme-forecolor;  
   padding-left:100px;
 }
 
@@ -18,24 +23,28 @@ div.mainContentHeader {
   margin-top:20px;
   margin-left:25%;
   font-size:24pt;
-  color:#FF8800;
+  color:$theme-forecolor;
   text-shadow:$text-shadow-hover;
 }
 
 div.mainContent {
   width:70%; 
   margin-left:15%; 
-  margin-top:2px;
+  margin-top:10px;
 }
 
 .sloganDiv{
   padding-left:200px;
-  color:#FF8800;  
+  color:$theme-forecolor;  
   font-size: $font-size;
   text-shadow: $text-shadow;
 }
 
 .label {
-  color: $text-color;
+  color: $theme-forecolor;
   text-shadow: $text-shadow;
+}
+
+.title_label {
+  font-size: 24pt;
 }

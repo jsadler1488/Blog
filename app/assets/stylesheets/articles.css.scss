@@ -1,29 +1,32 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$body-background-color: #EEEEEF;
 $font-stack:  Segoe UI, sans-serif;
-$primary-link-color: #FF8800;
-$hover-link-color: #CC8833;
 $no-text-decoration: none;
 $body-margins: 0px;
 $border-top-left: 1px solid #EEEEEF;
-$menu-gradient-start: #333333;
-$menu-gradient-stop: #666666;
-$text-shadow: 1px 1px 1px rgba(225,33,0,0.5);
+
+$theme-forecolor: #CCCC00;
+$theme-gradient: #DDDDAA;
+$theme-background: #333333;
+$theme-background-gradient: #666666;
+$theme-textbox-gradient: #777777;
+$text-shadow: 1px 1px 1px rgba(204,204,0,0.5);
 $text-shadow-hover: 1px 1px 8px rgba(33,33,33,1.0);
 a:link {
-  color: $primary-link-color;
+  color: $theme-forecolor;
   text-decoration: $no-text-decoration;
+  text-shadow:$text-shadow;
 }
 
 a:visited {
-  color: $primary-link-color;
+  color: $theme-forecolor;
   text-decoration: $no-text-decoration;
+  text-shadow:$text-shadow-hover;
 }
 
 a:hover {
-  color: $hover-link-color;
+  color: $theme-gradient;
   text-decoration: $no-text-decoration;
 }
 
@@ -32,22 +35,22 @@ body.header
   margin:0px;  
 }
 div{
-  font-family: Segoe UI, sans-serif;    
+  font-family: $font-stack;    
 }
 
 div.header {
-  background-color: #333333;  
+  background-color: $theme-background;  
   width:100%;
   height:110px;
 }
 
 div.actionBar {
-  background-image: linear-gradient(#333333, #666666);  
-  border: 1px solid #333333;
+  background-image: linear-gradient($theme-background, $theme-background-gradient);  
+  border: 1px solid $theme-background;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   font-family: $font-stack;
-  color: #FFFFFF;
+  color: $theme-forecolor;
   font-size: 12px;
   font-weight: bold;
   float:right;
@@ -77,16 +80,16 @@ div.innerHeader{
 
 div.PostHeader{
   height:30px;
-  background-image: linear-gradient(#333333, #666666);
+  background-image: linear-gradient($theme-background, $theme-background-gradient);
 }
 
 div.menu_item{
-  background-image: linear-gradient(#333333, #666666, #FF8800, #ffc477);
+  background-image: linear-gradient($theme-background, $theme-background-gradient, $theme-forecolor, $theme-gradient);
   background-size: auto 300%;
   background-position: 0 0;
   font-size: 16px;
   font-family: $font-stack;
-  color:#FF8800;
+  color:$theme-forecolor;
   transition: all 0.5s;  
   height:30px;
   width:14%;
@@ -100,7 +103,7 @@ div.menu_item{
 
 div.menu_item:hover{
   background-position:0 100%;
-  color:#333333;
+  color:$theme-background;
   text-shadow: $text-shadow-hover;
 }
 
@@ -144,29 +147,34 @@ div.DeviseStatusGreen {
 }
 p.DeviseInnerStatusGreen {
   opacity:1.0;
-  color:#00AA00;
+  color:$theme-forecolor;
+  text-shadow:$text-shadow;
 }
 
 input.submit {
-  background-image: linear-gradient(#333333, #666666, #FF8800, #ffc477);
+  background-image: linear-gradient($theme-background, $theme-background-gradient, $theme-forecolor, $theme-gradient);
   background-size: auto 300%;
-  background-position: 0 0;
-  border:0px solid #444444;  
-  height: 30px; width: 115px;
+  background-position: 0 0; 
+  height: 30px;
+  width: 115px;
   font-size: 16px;
   font-family: $font-stack;
-  color:#FF8800;
+  color:$theme-forecolor;
   border-radius: 5px;
   box-shadow: 1px 1px 8px rgba(33,33,33,0.9);  
   transition: all 0.5s;  
   text-shadow:$text-shadow;
+  border:0;
+}
+
+input.submitWidthOverride{
+  width:auto;
 }
 
 input.submit:hover {
   background-position: 0 100%;
-  box-shadow: 1px 1px 8px #FF8800;
-  border:0px solid #FF8800;
-  color:#333333;
+  box-shadow: 1px 1px 8px $theme-forecolor;
+  color:$theme-background;
   cursor:pointer;
   text-shadow:$text-shadow-hover;
 }
@@ -220,14 +228,19 @@ div.signButtonDiv {
   width:425px;
 }
 
+div.resetPassDiv {
+  padding-top:10px;
+  width:500px;
+}
+
 input.text_field{
-  background-image:linear-gradient(#333333, #777777);
+  background-image:linear-gradient($theme-background, $theme-textbox-gradient);
   border-radius:10px;
-  border-color:#333333;
+  border-color:$theme-background;
   box-shadow: 1px 1px 8px rgba(33,33,33,0.9);
   padding:5px;
   height:25px;
-  color: #FF8800; 
+  color: $theme-forecolor; 
 	border:0;
 	font-family: $font-stack;
 	font-size:16px;
@@ -235,12 +248,12 @@ input.text_field{
 }
 
 input.text_field:focus {
-	box-shadow: 0px 1px 8px #F48004;
+	box-shadow: 0px 1px 8px $theme-forecolor;
 	border:0;
 }
 
 label.labelStyle {
-	color: linear-gradient(#FF8800, #FF8800);
+	color: linear-gradient($theme-forecolor, $theme-forecolor);
 text-shadow: 1px 1px 8px rgba(88,88,88,0.5);
   
 }
@@ -274,7 +287,7 @@ input[type=checkbox].check_box:checked + label.check_box_label {
 
 .check_box_label{ 
   background-image:url(/assets/dark-check-orange.png); 
-  color:#FF8800;
+  color:$theme-forecolor;
   text-shadow:$text-shadow;
 }
 
