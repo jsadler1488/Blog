@@ -11,21 +11,21 @@
 	<div class="mainContentPrepare">
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :first_name, "First Name:", {class: 'labelStyle'} %>
+				<%= f.label :first_name, "First Name:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.text_field :first_name, {class: 'text_field'}  %>
 			</div>
 		</div><div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :last_name, "Last Name:" %>
+				<%= f.label :last_name, "Last Name:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.text_field :last_name, {class: 'text_field'}  %>
 			</div>
 		</div><div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :email, "Email:"%>
+				<%= f.label :email, "Email:", {class: 'label'}%>
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.email_field :email, {class: 'text_field'}  %>
@@ -33,7 +33,7 @@
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :password, "Password:" %>
+				<%= f.label :password, "Password:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.password_field :password, { autocomplete: "off", class: 'text_field'}  %>
@@ -41,7 +41,7 @@
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :password_confirmation, "Password Confirmation:" %>
+				<%= f.label :password_confirmation, "Password Confirmation:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.password_field :password_confirmation, {autocomplete: "off", class: 'text_field'} %>

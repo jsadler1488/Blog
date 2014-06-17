@@ -16,7 +16,7 @@
 
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :password %>
+				<%= f.label :password, {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.password_field :password, required: :true, message: "Password is required", autocomplete: "off", class: 'text_field' %>
