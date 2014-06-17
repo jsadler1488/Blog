@@ -3,12 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $font-size: 36px;
-$text-shadow: 8px 8px 8px rgba(33,33,33,1.0);
-
+$text-shadow: 1px 8px 8px rgba(0,0,0,0.5);
+$text-shadow-hover: 1px 1px 8px rgba(33,33,33,1.0);
+$text-color: #FF8800;
 .titleDiv{
+  margin-top:20px;
   font-size: $font-size;
   text-shadow: $text-shadow;
+  color:#FF8800;  
   padding-left:100px;
+}
+
+div.mainContentHeader {
+  margin-top:20px;
+  margin-left:25%;
+  font-size:24pt;
+  color:#FF8800;
+  text-shadow:$text-shadow-hover;
 }
 
 div.mainContent {
@@ -19,6 +30,12 @@ div.mainContent {
 
 .sloganDiv{
   padding-left:200px;
+  color:#FF8800;  
   font-size: $font-size;
+  text-shadow: $text-shadow;
+}
+
+.label {
+  color: $text-color;
   text-shadow: $text-shadow;
 }
