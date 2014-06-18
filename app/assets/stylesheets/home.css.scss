@@ -5,6 +5,7 @@
 $font-size: 36px;
 $text-shadow: 1px 8px 8px rgba(0,0,0,0.5);
 $text-shadow-hover: 1px 1px 8px rgba(33,33,33,1.0);
+$footer-height:90px;
 
 $theme-forecolor: #CCCC00;
 $theme-gradient: #DDDDAA;
@@ -31,7 +32,10 @@ div.mainContent {
   width:70%; 
   margin-left:15%; 
   margin-top:10px;
+  padding-bottom:$footer-height;
 }
+
+
 
 .sloganDiv{
   padding-left:200px;
@@ -47,4 +51,26 @@ div.mainContent {
 
 .title_label {
   font-size: 24pt;
+}
+
+.footer {
+  font-size:10pt;
+  position:absolute;
+  bottom:0;
+  height:$footer-height;
+}
+
+.footerContent {
+  width:70%; 
+  margin-left:15%; 
+  margin-top:10px;
+}
+
+.footerLinkHolder{
+  margin-top:15px;
+}
+
+.footerLinks {
+  float:left;
+  margin-left:100px;
 }

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>Blog</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
+		<title>Blog</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
 	</head>
-	<body class="header">	
-		<%= render 'layouts/header' %>
-		<div>
-			<%= yield %>
+	<body class="header">
+		<div class="container">
+			<%= render 'layouts/header' %>
+			<div>
+				<%= yield %>
+			</div>
+			<%= render 'layouts/disclaimer'%>
 		</div>
 	</body>
 </html>

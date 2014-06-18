@@ -4,11 +4,11 @@
 	</div>
 
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-	<div>
-		<%= devise_error_messages! %>
-	</div>
 
 	<div class="mainContentPrepare">
+		<div class="label">
+			<%= devise_error_messages! %>
+		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :first_name, "First Name:", {class: 'label'} %>
