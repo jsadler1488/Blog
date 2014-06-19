@@ -6,8 +6,8 @@ $no-text-decoration: none;
 $body-margins: 0px;
 $border-top-left: 1px solid #EEEEEF;
 
-$theme-forecolor: #CCCC00;
-$theme-gradient: #DDDDAA;
+$theme-forecolor: #DDDD00;
+$theme-gradient: #EEEEAA;
 $theme-background: #333333;
 $theme-background-gradient: #666666;
 $theme-textbox-gradient: #777777;
@@ -32,7 +32,9 @@ a:hover {
 
 body.header
 {
-  margin:0px;  
+  margin-top:0px;
+  margin-left:0px;
+  margin-bottom:0px;  
 }
 div{
   font-family: $font-stack;    
@@ -62,6 +64,11 @@ div.actionBar {
   position:relative;
   top: -185px;
   box-shadow:1px 1px 8px rgba(33, 33, 33, 0.9);
+}
+
+div.actionBarLine {
+  float:right;
+  position:relative;
 }
 
 div.actionDivStatus {
@@ -217,7 +224,7 @@ div.signUpLabelDiv  {
 }
 
 div.signUpInputDiv  {
-  width:100px;
+  width:auto;
   float:left; 
   padding-left:5px;
 }
@@ -245,6 +252,27 @@ input.text_field{
 	font-family: $font-stack;
 	font-size:16px;
 	text-shadow:$text-shadow;
+}
+
+.combo_box {
+  background-image:linear-gradient($theme-background, $theme-textbox-gradient);
+  border-radius:10px;
+  border-color:$theme-background;
+  box-shadow: 1px 1px 8px rgba(33,33,33,0.9);
+  padding:5px;
+  height:30px;
+  color: $theme-forecolor; 
+  border:0;
+  font-family: $font-stack;
+  font-size:16px;
+  text-shadow:$text-shadow;
+  outline:none;
+}
+
+.combo_box option {
+  background-color: $theme-background;
+  border:none;
+  outline:none;
 }
 
 input.text_field:focus {

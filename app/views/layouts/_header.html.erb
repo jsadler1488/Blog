@@ -5,30 +5,34 @@
 	<%= render 'layouts/devise_status'%>
 	<% if user_signed_in? || provider_signed_in?%>
 	<% if current_user %>
-	<div class="actionBar">
-		<div>
-			<span><%= link_to destroy_user_session_path,
-				method: :delete do%>Sign Out<%end%> </span>
-		</div>
-		<div>
-			<span><%= link_to(edit_user_registration_path) do %>Edit Profile<%end%></span>
-		</div>
-		<div class="actionDivStatus">
-			Client Signed in as: <%= current_user.first_name %> <%= current_user.last_name%>
-		</div>
+	<div class="actionBarLine">
+		<div class="actionBar">
+			<div>
+				<span><%= link_to destroy_user_session_path,
+					method: :delete do%>Sign Out<%end%> </span>
+			</div>
+			<div>
+				<span><%= link_to(edit_user_registration_path) do %>Edit Profile<%end%></span>
+			</div>
+			<div class="actionDivStatus">
+				Client Signed in as: <%= current_user.first_name %> <%= current_user.last_name%>
+			</div>
 
+		</div>
 	</div>
 	<% elsif current_provider %>
-	<div class="actionBar">
-		<div>
-			<span><%= link_to destroy_provider_session_path,
-				method: :delete do%>Sign Out<%end%> </span>
-		</div>
-		<div>
-			<span><%= link_to(edit_provider_registration_path) do %>Edit Profile<%end%></span>
-		</div>
-		<div class="actionDivStatus">
-			<span> Provider Signed in as: <%= current_provider.first_name %> <%= current_provider.last_name%> </span>
+	<div class="actionBarLine">
+		<div class="actionBar">
+			<div>
+				<span><%= link_to destroy_provider_session_path,
+					method: :delete do%>Sign Out<%end%> </span>
+			</div>
+			<div>
+				<span><%= link_to(edit_provider_registration_path) do %>Edit Profile<%end%></span>
+			</div>
+			<div class="actionDivStatus">
+				<span> Provider Signed in as: <%= current_provider.first_name %> <%= current_provider.last_name%> </span>
+			</div>
 		</div>
 	</div>
 	<%end%>
@@ -83,6 +87,6 @@
 	</div>
 	<%end%>
 	<%end%>
-	
+
 </div>
 

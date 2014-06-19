@@ -27,15 +27,15 @@
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :age, {class: 'label'} %>
+				<%= f.label :birthdate, "Birthdate:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
-				<%= f.number_field :age, :value => 25, step: 1, min: 18, max: 150, class: 'text_field' %>
+				<%= f.date_select :birthdate, {start_year: 1900, end_year: Date.today.year - 3, order: [:month, :day, :year], default: { year: 1975}}, {class: 'combo_box'} %>
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :email, {class: 'label'} %>
+				<%= f.label :email, "Email Address:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 
@@ -53,16 +53,20 @@
 
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :password, {class: 'label'}%>
+				<%= f.label :password, "Password:", {class: 'label'}%>
 			</div>
 			<div class="signUpInputDiv">
-				<%= f.password_field :password, {autocomplete: "off", class: 'text_field'} %><i>(leave blank if you don't want to change it)</i>
+				<%= f.password_field :password, {autocomplete: "off", class: 'text_field'} %>
+
+			</div>
+			<div class="label">
+				(leave blank if you don't want to change it)
 			</div>
 		</div>
 
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :password_confirmation, {class: 'label'} %>
+				<%= f.label :password_confirmation, "Password Confirmation:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 
@@ -72,12 +76,15 @@
 
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-				<%= f.label :current_password, {class: 'label'} %>
+				<%= f.label :current_password, "Current Password:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 
 				<%= f.password_field :current_password, {autocomplete: "off", class: 'text_field'} %>
-<div class="label">(we need your current password to confirm your changes)</div>
+
+			</div>
+			<div class="label">
+				(we need your current password to confirm your changes)
 			</div>
 		</div>
 
@@ -86,14 +93,17 @@
 				<%= f.submit "Update", {class: 'submit'} %>
 			</div>
 		</div>
+
 	</div>
 	<% end %>
+	<div class="mainContentPrepare">
+		<div class="signUpBlockDiv">
+			<div class="signButtonDiv">
 
-	<h3>Cancel my account</h3>
+				<%= button_to "Cancel my account", registration_path(resource_name), {data: { confirm: "Are you sure?" },  method: :delete, class: "submit override" } %>
 
-	<p>
-		Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), {data: { confirm: "Are you sure?" },  method: :delete, class: "submit override" } %>
-	</p>
+			</div>
+		</div>
+	</div>
 
-	<%= link_to "Back", :back %>
 </div>
