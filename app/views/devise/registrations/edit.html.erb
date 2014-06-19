@@ -3,75 +3,97 @@
 		Edit <%= resource_name.to_s.humanize %>
 	</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<div class="mainContentPrepare">
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+	<div class="mainContentPrepare">
 		<div class="label">
-  <%= devise_error_messages! %>
+			<%= devise_error_messages! %>
 
-  
-  </div>
+		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-  	<%= f.label :first_name, "First Name:", {class: 'label'} %>
+				<%= f.label :first_name, "First Name:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
-  	<%= f.text_field :first_name, {class: 'text_field'} %>
-  </div>
+				<%= f.text_field :first_name, {class: 'text_field'} %>
+			</div>
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-  	<%= f.label :last_name, "Last Name:", {class: 'label'} %>
-  	</div>
+				<%= f.label :last_name, "Last Name:", {class: 'label'} %>
+			</div>
 			<div class="signUpInputDiv">
 				<%= f.text_field :last_name, {class: 'text_field'} %>
-  </div>
+			</div>
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
-  	<%= f.label :age, {class: 'label'} %></div>
+				<%= f.label :age, {class: 'label'} %>
+			</div>
 			<div class="signUpInputDiv">
-  	<%= f.number_field :age, :value => 25, step: 1, min: 18, max: 150, class: 'text_field' %>
-  </div>
+				<%= f.number_field :age, :value => 25, step: 1, min: 18, max: 150, class: 'text_field' %>
+			</div>
 		</div>
 		<div class="signUpBlockDiv">
-			<div class="signUpLabelDiv"><%= f.label :email, {class: 'label'} %></div>
+			<div class="signUpLabelDiv">
+				<%= f.label :email, {class: 'label'} %>
+			</div>
 			<div class="signUpInputDiv">
-				
-  <%= f.email_field :email, {class: 'text_field'} %></div>
+
+				<%= f.email_field :email, {class: 'text_field'} %>
+			</div>
 		</div>
 
+		<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+			</div>
+		</div>
+		<% end %>
 
-
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div class="signUpBlockDiv">
-			<div class="signUpLabelDiv">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div></div>
-  <% end %>
-
-  <div class="signUpBlockDiv">
-			<div class="signUpLabelDiv"><%= f.label :password, {class: 'label'}%></div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :password, {class: 'label'}%>
+			</div>
 			<div class="signUpInputDiv">
-    <%= f.password_field :password, {autocomplete: "off", class: 'text_field'} %><i>(leave blank if you don't want to change it)</i></div></div>
+				<%= f.password_field :password, {autocomplete: "off", class: 'text_field'} %><i>(leave blank if you don't want to change it)</i>
+			</div>
+		</div>
 
-  <div class="signUpBlockDiv">
-			<div class="signUpLabelDiv"><%= f.label :password_confirmation, {class: 'label'} %></div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :password_confirmation, {class: 'label'} %>
+			</div>
 			<div class="signUpInputDiv">
-				
-    <%= f.password_field :password_confirmation, {autocomplete: "off", class: 'text_field'} %></div></div>
 
-  <div class="signUpBlockDiv">
-			<div class="signUpLabelDiv"><%= f.label :current_password, {class: 'label'} %></div>
+				<%= f.password_field :password_confirmation, {autocomplete: "off", class: 'text_field'} %>
+			</div>
+		</div>
+
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :current_password, {class: 'label'} %>
+			</div>
 			<div class="signUpInputDiv">
-				
-    <%= f.password_field :current_password, autocomplete: "off" %><i>(we need your current password to confirm your changes)</i></div></div>
 
-  <div class="signUpBlockDiv">
-			<div class="signButtonDiv"><%= f.submit "Update", {class: 'submit'} %></div></div></div>
-<% end %>
+				<%= f.password_field :current_password, {autocomplete: "off", class: 'text_field'} %>
+<div class="label">(we need your current password to confirm your changes)</div>
+			</div>
+		</div>
 
-<h3>Cancel my account</h3>
+		<div class="signUpBlockDiv">
+			<div class="signButtonDiv">
+				<%= f.submit "Update", {class: 'submit'} %>
+			</div>
+		</div>
+	</div>
+	<% end %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), {data: { confirm: "Are you sure?" },  method: :delete, class: "submit override" } %></p>
+	<h3>Cancel my account</h3>
 
-<%= link_to "Back", :back %>
+	<p>
+		Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), {data: { confirm: "Are you sure?" },  method: :delete, class: "submit override" } %>
+	</p>
+
+	<%= link_to "Back", :back %>
 </div>
