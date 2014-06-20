@@ -314,7 +314,7 @@ input[type=checkbox].check_box:checked + label.check_box_label {
 }
 
 .check_box_label{ 
-  background-image:url(/assets/dark-check-orange.png); 
+  background-image:image-url("dark-check-orange.png"); 
   color:$theme-forecolor;
   text-shadow:$text-shadow;
 }
