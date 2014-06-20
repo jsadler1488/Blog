@@ -1,0 +1,19 @@
+<div class="mainContent">
+	<div class="mainContentHeader">
+		Find A Provider
+	</div>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Text</th>
+			<th colspan="3"></th>
+		</tr>
+		<% @providers.each do |p| %>
+		<tr>
+			<th><%= p.first_name %></th>
+			<th><%= p.last_name %></th>
+			<th><%= link_to 'Show', provider_path(p) %></th>
+		</tr>
+		<%end%>
+	</table>
+</div>

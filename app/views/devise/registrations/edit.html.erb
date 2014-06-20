@@ -25,12 +25,20 @@
 				<%= f.text_field :last_name, {class: 'text_field'} %>
 			</div>
 		</div>
-		<div class="signUpBlockDiv">
+		<!-- ><div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :birthdate, "Birthdate:", {class: 'label'} %>
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.date_select :birthdate, {start_year: 1900, end_year: Date.today.year - 3, order: [:month, :day, :year], default: { year: 1975}}, {class: 'combo_box'} %>
+			</div>
+		</div> -->
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :zip, "Zip Code", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :zip, {class: 'text_field'}%>
 			</div>
 		</div>
 		<div class="signUpBlockDiv">

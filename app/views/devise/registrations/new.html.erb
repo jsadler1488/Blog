@@ -35,6 +35,14 @@
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
+				<%= f.label :zip, "Zip Code", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :zip, {class: 'text_field'}%>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
 				<%= f.label :email, "Email:", {class: 'label'}%>
 			</div>
 			<div class="signUpInputDiv">
@@ -55,6 +63,22 @@
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.password_field :password_confirmation, {autocomplete: "off", class: 'text_field'} %>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv"></div>
+			<div class="signUpInputDiv">
+				<br />
+				<%= f.label "Human Verification", class: 'label' %>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :humanizer_answer, resource.humanizer_question, {class: 'label' } %>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :humanizer_answer, class: 'text_field'%>
+				<%= f.hidden_field :humanizer_question_id %>
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
