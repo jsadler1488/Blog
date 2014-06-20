@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :providers,  :controllers => {registrations: 'registrations'}
+  devise_for :users, :controllers => {registrations: 'registrations'}
   get 'provider_terms' => 'provider_terms_of_use#index'
   get 'privacy' => 'privacy_policy#index'
   get 'terms' => 'terms_of_use#index'
   get 'provider/:id' => 'provider#show' 
   resources :providers
   #get 'providers/info' => 'providers#show'
-  devise_for :providers,  :controllers => {registrations: 'registrations'}
-  devise_for :users, :controllers => {registrations: 'registrations'}
   
   resources :articles do
     resources :comments
