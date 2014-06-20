@@ -307,6 +307,7 @@ input[type=checkbox].check_box + label.check_box_label {
   font-size:15px;
   vertical-align:middle;
   cursor:pointer;
+  text-shadow:$text-shadow;
 }
 
 input[type=checkbox].check_box:checked + label.check_box_label {
