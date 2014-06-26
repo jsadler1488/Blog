@@ -1,4 +1,5 @@
 class Provider < ActiveRecord::Base
+  has_many :ratings, dependent: :destroy
   include Humanizer
   require_human_on :create
   devise :database_authenticatable, :registerable,

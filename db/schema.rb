@@ -11,27 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620174848) do
+ActiveRecord::Schema.define(version: 20140626191332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "articles", force: true do |t|
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "comments", force: true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
 
   create_table "mains", force: true do |t|
     t.string   "title"
@@ -61,6 +44,15 @@ ActiveRecord::Schema.define(version: 20140620174848) do
 
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree
   add_index "providers", ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "ratings", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rating"
+    t.integer  "provider_id"
+  end
+
+  add_index "ratings", ["provider_id"], name: "index_ratings_on_provider_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
