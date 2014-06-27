@@ -13,6 +13,20 @@
 			<th><%= p.first_name %></th>
 			<th><%= p.last_name %></th>
 			<th><%= link_to 'Show', provider_path(p) %></th>
+			<% if (p.ratings.count == 0) %>
+			<th>This provider has not yet been rated</th>
+			<% else %>
+			<th><fieldset class="rating">
+				<% (1..p.ratings.average(:rating)).each do |i|%>
+					<label for="star" class="ratingPos"></label>
+				<% end %>
+				<% (5..p.ratings.average(:rating)).each do |i|%>
+					<label for="star" class="ratingNeg"></label>
+				<% end %>
+    
+    </fieldset></th>			
+			<th><%= p.ratings.average(:rating) %>(<%= p.ratings.count %>)</th>
+			<%end%>
 		</tr>
 		<%end%>
 	</table>

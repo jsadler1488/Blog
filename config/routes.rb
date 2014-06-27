@@ -5,12 +5,10 @@ Rails.application.routes.draw do
   get 'privacy' => 'privacy_policy#index'
   get 'terms' => 'terms_of_use#index'
   get 'provider/:id' => 'provider#show' 
-  resources :providers
-  #get 'providers/info' => 'providers#show'
-  
-  resources :articles do
-    resources :comments
+  resources :providers do
+    resources :ratings
   end
+  
   root 'home#index'
 
   # Example of regular route:
