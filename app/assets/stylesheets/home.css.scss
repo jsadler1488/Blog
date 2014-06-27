@@ -33,15 +33,14 @@ div.mainContent {
   margin-left:15%; 
   margin-top:10px;
   padding-bottom:$footer-height;
+  
 }
 
 div.mainContentRegis {
-  div.mainContent {
   width:90%; 
-  margin-left:15%; 
+  margin-left:5%; 
   margin-top:10px;
   padding-bottom:$footer-height;
-}
 }
 
 
@@ -303,7 +302,7 @@ div.signInRememberDiv {
 
 div.signUpLabelDiv  {
   text-align:right; 
-  width:300px;
+  width:200px;
   float:left;
   height:25px;
   padding-top:5px;

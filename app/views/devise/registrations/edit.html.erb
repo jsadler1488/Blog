@@ -93,11 +93,11 @@
 		<div class="rightPane">
 			<div class="signUpBlockDiv">
 				<div class="signUpLabelDiv">
-					<%= f.label :current_password, "*Current Password:", {class: 'label'} %>
+					<%= f.label :current_photo, "Provide A Photo:", {class: 'label'} %>
 				</div>
 				<div class="signUpInputDiv">
 
-					<%= f.password_field :current_password, {autocomplete: "off", class: 'text_field'} %>
+					<%= f.file_field :current_photo, {accept: 'image/png,image/gif,image/jpeg',class: 'text_field'} %>
 
 				</div>
 			</div>
