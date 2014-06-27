@@ -22,26 +22,27 @@ $theme-background-gradient: #666666;
 
 div.mainContentHeader {
   margin-top:20px;
-  margin-left:250px;
+  margin-left:25%;
   font-size:24pt;
   color:$theme-forecolor;
   text-shadow:$text-shadow-hover;
 }
 
 div.mainContent {
-  width:1024px; 
+  width:70%; 
   margin-left:15%; 
   margin-top:10px;
   padding-bottom:$footer-height;
 }
 
 div.mainContentRegis {
-  width:1280px; 
-  //margin-left:15%; 
+  div.mainContent {
+  width:90%; 
+  margin-left:15%; 
   margin-top:10px;
   padding-bottom:$footer-height;
 }
-
+}
 
 
 .sloganDiv{
@@ -68,8 +69,8 @@ div.mainContentRegis {
 }
 
 .footerContent {
-  width:900px; 
-  margin-left:164px; 
+  width:70%; 
+  margin-left:15%; 
   margin-top:10px;
 }
 
@@ -126,7 +127,7 @@ div{
 
 div.header {
   background-color: $theme-background;  
-  width:1280px;
+  width:100%;
   height:110px;
 }
 
@@ -184,7 +185,7 @@ div.menu_item{
   color:$theme-forecolor;
   transition: all 0.5s;  
   height:30px;
-  width:140px;
+  width:14%;
   float:left;  
   text-align:center;
   //box-shadow: 1px 1px 8px rgba(33, 33, 33, 0.5);
@@ -414,7 +415,7 @@ input[type=checkbox].check_box:checked + label.check_box_label {
 
 
 div.mainContentPrepare {
-  width:1280px; 
+  width:100%; 
   padding-top:15px
 }
 
