@@ -22,15 +22,22 @@ $theme-background-gradient: #666666;
 
 div.mainContentHeader {
   margin-top:20px;
-  margin-left:25%;
+  margin-left:250px;
   font-size:24pt;
   color:$theme-forecolor;
   text-shadow:$text-shadow-hover;
 }
 
 div.mainContent {
-  width:70%; 
+  width:1024px; 
   margin-left:15%; 
+  margin-top:10px;
+  padding-bottom:$footer-height;
+}
+
+div.mainContentRegis {
+  width:1280px; 
+  //margin-left:15%; 
   margin-top:10px;
   padding-bottom:$footer-height;
 }
@@ -61,8 +68,8 @@ div.mainContent {
 }
 
 .footerContent {
-  width:70%; 
-  margin-left:15%; 
+  width:900px; 
+  margin-left:164px; 
   margin-top:10px;
 }
 
@@ -111,7 +118,7 @@ body.header
 {
   margin-top:0px;
   margin-left:0px;
-  margin-bottom:0px;  
+  margin-bottom:0px;
 }
 div{
   font-family: $font-stack;    
@@ -119,7 +126,7 @@ div{
 
 div.header {
   background-color: $theme-background;  
-  width:100%;
+  width:1280px;
   height:110px;
 }
 
@@ -177,7 +184,7 @@ div.menu_item{
   color:$theme-forecolor;
   transition: all 0.5s;  
   height:30px;
-  width:14%;
+  width:140px;
   float:left;  
   text-align:center;
   //box-shadow: 1px 1px 8px rgba(33, 33, 33, 0.5);
@@ -407,7 +414,7 @@ input[type=checkbox].check_box:checked + label.check_box_label {
 
 
 div.mainContentPrepare {
-  width:100%; 
+  width:1280px; 
   padding-top:15px
 }
 
