@@ -3,7 +3,7 @@
 		Edit <%= resource_name.to_s.humanize %>
 	</div>
 
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
 	<div class="mainContentPrepare">
 		<div class="label">
 			<%= devise_error_messages! %>
@@ -93,12 +93,13 @@
 		<div class="rightPane">
 			<div class="signUpBlockDiv">
 				<div class="signUpLabelDiv">
-					<%= f.label :current_photo, "Provide A Photo:", {class: 'label'} %>
+					<%= f.label :profile_img, "Provide A Photo:", {class: 'label'} %>
 				</div>
 				<div class="signUpInputDiv">
-
-					<%= f.file_field :current_photo, {accept: 'image/png,image/gif,image/jpeg',class: 'text_field'} %>
-
+					<%= f.file_field :profile_img, {:data => { :max_file_size => 2.megabytes }, accept: 'image/png,image/gif,image/jpeg',class: 'text_field'} %>
+				</div>
+				<div>
+					<%= image_tag url_for(action: :show_profile_image, :id => @provider.id, :controller => :providers), size: "300x200" %>
 				</div>
 			</div>
 		</div>
@@ -107,17 +108,18 @@
 				<%= f.submit "Update", {class: 'submit'} %>
 			</div>
 		</div>
-
 	</div>
-	<% end %>
-	<div class="mainContentPrepare">
-		<div class="signUpBlockDiv">
-			<div class="signButtonDiv">
 
-				<%= button_to "Cancel my account", registration_path(resource_name), {data: { confirm: "Are you sure?" },  method: :delete, class: "submit override" } %>
+</div>
+<% end %>
+<div class="mainContentPrepare">
+	<div class="signUpBlockDiv">
+		<div class="signButtonDiv">
 
-			</div>
+			<%= button_to "Cancel my account", registration_path(resource_name), {data: { confirm: "Are you sure?" },  method: :delete, class: "submit override" } %>
+
 		</div>
 	</div>
+</div>
 
 </div>

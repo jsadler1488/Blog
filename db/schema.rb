@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626191332) do
+ActiveRecord::Schema.define(version: 20140701145147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "mains", force: true do |t|
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "providers", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +33,10 @@ ActiveRecord::Schema.define(version: 20140626191332) do
     t.string   "last_name"
     t.date     "birthdate"
     t.string   "zip"
+    t.binary   "profile_image"
+    t.string   "filename"
+    t.string   "content_type"
+    t.string   "description"
   end
 
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree

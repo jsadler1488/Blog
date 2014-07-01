@@ -16,18 +16,19 @@
 			<% if (p.ratings.count == 0) %>
 			<th>This provider has not yet been rated</th>
 			<% else %>
-			<th><fieldset class="rating">
+			<th>
+			<fieldset class="rating">
 				<% (1..5).each do |i|%>
-					<% if p.ratings.average(:rating) >= i %>
-						<label for="star" class="ratingPos"></label>
-					<%else%>
-						<label for "star" class="ratingNeg"></label>
-					<%end%>
+				<% if p.ratings.average(:rating) >= i %>
+				<label for="star" class="ratingPos"></label>
+				<%else%>
+				<label for "star" class="ratingNeg"></label>
+				<%end%>
 				<% end %>
-				
-    
-    </fieldset></th>			
+
+			</fieldset></th>
 			<th><%= p.ratings.average(:rating) %>(<%= p.ratings.count %> Ratings)</th>
+
 			<%end%>
 		</tr>
 		<%end%>

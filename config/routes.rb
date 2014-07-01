@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :providers do
     resources :ratings
   end
-  
+  get 'providers/:id/show_profile_image' => 'providers#show_profile_image'
   root 'home#index'
 
   # Example of regular route:
