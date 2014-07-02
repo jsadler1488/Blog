@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :authenticate_user!, except: :show_profile_image 
+  before_action :authenticate_user!, except: [:show_profile_image, :index, :show] 
   before_action :authenticate_provider!
   def index
     @providers = Provider.all

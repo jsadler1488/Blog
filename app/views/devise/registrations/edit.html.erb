@@ -91,6 +91,7 @@
 			</div>
 		</div>
 		<div class="rightPane">
+			<% if provider_signed_in? %>
 			<div class="signUpBlockDiv">
 				<div class="signUpLabelDiv">
 					<%= f.label :profile_img, "Provide A Photo:", {class: 'label'} %>
@@ -102,6 +103,7 @@
 					<%= image_tag url_for(action: :show_profile_image, :id => @provider.id, :controller => :providers), size: "300x200" %>
 				</div>
 			</div>
+			<% end %>
 		</div>
 		<div class="signUpBlockDiv">
 			<div class="signButtonDiv">
