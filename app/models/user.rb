@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include Humanizer
-  require_human_on :create
+  has_many :reviews, dependent: :destroy
+  attr_accessor :bypass_humanizer
+  require_human_on :create, unless: :bypass_humanizer
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :first_name, presence: true, length: {minimum:2, maximum: 50}

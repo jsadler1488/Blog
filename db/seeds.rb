@@ -7,18 +7,47 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # ruby encoding: utf-8
 for ix in 1..50
-  
-
-  admin = Provider.create(email: 'tp' + ix.to_s + '@mail.com', password: 'testtest', sign_in_count: 0, created_at: DateTime.current, first_name: 'Test', last_name: 'Provider' + ix.to_s, birthdate: Date.new(1977, 8, 9), zip: '23452')
+  providers = Provider.create(email: 'tp' + ix.to_s + '@mail.com', \
+    password: 'testtest', \
+    first_name: 'Test', \
+    last_name: 'Provider' + ix.to_s, birthdate: Date.new(1977, 8, 9), \
+    zip: '23452', bypass_humanizer: true)
+    
+  ratings = Rating.create(provider_id: providers.id, rating: ix % 5 + 1)
+  users = User.create(email: 'tu' + ix.to_s + '@mail.com', \
+    password: 'testtest', \
+    first_name: 'Test', \
+    last_name: 'User' + ix.to_s, birthdate: Date.new(1977, 8, 9), \
+    zip: '23454', bypass_humanizer: true)
+  reviews = Review.create(provider_id: providers.id, user_id: users.id, review: 'Good' + ix.to_s)
 end
 
-if admin.errors.blank?
-    puts "***User #{admin.first_name} #{admin.last_name} created ***"
-    admin.add_role :admin # add_role is method defined by rolify gem
-    puts "***admin role assigned to #{admin.first_name} #{admin.last_name}***"
+if providers.errors.blank?
+    puts "***providers seeding completed with no errors***"
+    
 else
-    puts "admin user failed to create due to below reasons:"
-    admin.errors.each do |x, y|
+    puts "providers seeding failed due to below reasons:"
+    providers.errors.each do |x, y|
+       puts"#{x} #{y}" # x will be the field name and y will be the error on it
+     end
+end
+
+if ratings.errors.blank?
+    puts "***ratings seeding completed with no errors***"
+    
+else
+    puts "ratings seeding failed due to below reasons:"
+    ratings.errors.each do |x, y|
+       puts"#{x} #{y}" # x will be the field name and y will be the error on it
+     end
+end
+
+if users.errors.blank?
+    puts "***users seeding completed with no errors***"
+    
+else
+    puts "users seeding failed due to below reasons:"
+    users.errors.each do |x, y|
        puts"#{x} #{y}" # x will be the field name and y will be the error on it
      end
 end
