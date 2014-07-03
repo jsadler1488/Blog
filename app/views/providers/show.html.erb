@@ -1,11 +1,33 @@
 <p>
 	<strong>Title:</strong>
-	<%= @provider.first_name %> <%=@provider.last_name %>
+	<%= @provider.first_name %> <%= @provider.last_name %>
+</p>
+<p>
+	<%= image_tag url_for(action: :show_profile_image, :id => @provider.id, :controller => :providers), size: "300x200" %>
 </p>
 <p>
 	<strong>Text:</strong>
 	<%= @provider.zip %>
 </p>
 
+<% @provider.reviews.each do |review| %>
+<p>
+	Reviewer: <%= review.user.first_name + " " + review.user.last_name%>
+</p>
 
-<%= link_to 'Back To Providers', providers_path%>
+<fieldset class="rating">
+	<% (1..5).each do |i|%>
+	<% if review.rating >= i %>
+	<label for="star" class="ratingPos"></label>
+	<%else%>
+	<label for="star" class="ratingNeg"></label>
+	<%end%>
+	<% end %>
+
+</fieldset>
+Review: <%= review.review %>
+
+<%end%>
+<p>
+	<%= link_to 'Back To Providers', providers_path%>
+</p>

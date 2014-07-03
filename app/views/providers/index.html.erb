@@ -2,6 +2,8 @@
 	<div class="mainContentHeader">
 		Find A Provider
 	</div>
+	Sort By: <%= select_tag(:sorter, options_for_select([['Highest Rating', 1],['Name', 2]], params[:sorter])) %>
+	<%= submit_tag "Refine"%>
 	<table>
 		<tr>
 			<th>Title</th>
@@ -13,13 +15,13 @@
 			<th><%= p.first_name %></th>
 			<th><%= p.last_name %></th>
 			<th><%= link_to 'Show', provider_path(p) %></th>
-			<% if (p.ratings.count == 0) %>
+			<% if (p.reviews.count == 0) %>
 			<th>This provider has not yet been rated</th>
 			<% else %>
 			<th>
 			<fieldset class="rating">
 				<% (1..5).each do |i|%>
-				<% if p.ratings.average(:rating) >= i %>
+				<% if p.reviews.average(:rating) >= i %>
 				<label for="star" class="ratingPos"></label>
 				<%else%>
 				<label for "star" class="ratingNeg"></label>
@@ -27,10 +29,16 @@
 				<% end %>
 
 			</fieldset></th>
-			<th><%= p.ratings.average(:rating) %>(<%= p.ratings.count %> Ratings)</th>
-
+			<th><%= p.reviews.average(:rating) %>(<%= p.reviews.count %> Ratings)</th>
+			
+			<%end%>
+			<% if p.rate.blank? || p.unit.blank? %>
+			<th>Rates not yet set</th>
+			<%else%>
+			<th>Rate: <%= number_to_currency(p.rate) %> Per <%= p.unit %></th>
 			<%end%>
 		</tr>
 		<%end%>
 	</table>
+	<%= will_paginate @providers%>
 </div>

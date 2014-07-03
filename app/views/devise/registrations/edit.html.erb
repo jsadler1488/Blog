@@ -99,8 +99,22 @@
 				<div class="signUpInputDiv">
 					<%= f.file_field :profile_img, {:data => { :max_file_size => 2.megabytes }, accept: 'image/png,image/gif,image/jpeg',class: 'text_field'} %>
 				</div>
-				<div>
-					<%= image_tag url_for(action: :show_profile_image, :id => @provider.id, :controller => :providers), size: "300x200" %>
+
+			</div>
+			<div class="signUpBlockDiv">
+				<div class="signUpLabelDiv">
+					<%= f.label :rate, "Charging Rate (US Dollars):", {class: 'label'} %>
+				</div>
+				<div class="signUpInputDiv">
+					<%= f.number_field number_to_currency(:rate.value), class: 'text_field', step: 0.01%>
+				</div>
+			</div>
+			<div class="signUpBlockDiv">
+				<div class="signUpLabelDiv">
+					<%= f.label :unit, "Per:", {class: 'label'} %>
+				</div>
+				<div class="signUpInputDiv">
+					<%= f.select :unit, options_for_select(['Hour', 'Minute', 'Session'], @provider.unit), {include_blank: 'Not Selected'}, {class: 'combo_box' }%>
 				</div>
 			</div>
 			<% end %>
@@ -110,6 +124,7 @@
 				<%= f.submit "Update", {class: 'submit'} %>
 			</div>
 		</div>
+
 	</div>
 
 </div>
@@ -123,5 +138,9 @@
 		</div>
 	</div>
 </div>
-
+<% if !@provider.profile_image.blank? %>
+<div>
+	<%= image_tag url_for(action: :show_profile_image, :id => @provider.id, :controller => :providers), size: "300x200" %>
+</div>
+<%end%>
 </div>

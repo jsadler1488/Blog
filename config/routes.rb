@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'terms' => 'terms_of_use#index'
   get 'provider/:id' => 'provider#show'
   resources :providers do
-    resources :ratings
     resources :reviews
   end
   get 'providers/:id/show_profile_image' => 'providers#show_profile_image'

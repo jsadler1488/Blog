@@ -2,7 +2,11 @@ class ProvidersController < ApplicationController
   before_action :authenticate_user!, except: [:show_profile_image, :index, :show] 
   before_action :authenticate_provider!, except: [:show_profile_image, :index, :show]
   def index
-    @providers = Provider.all
+    @providers = Provider.joins(:reviews)\
+      .group("providers.id")\
+      .order("avg(reviews.rating) DESC")\
+      .paginate(page: params[:page], per_page: 10)
+    
   end
   
   def show

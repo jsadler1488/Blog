@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702192052) do
+ActiveRecord::Schema.define(version: 20140703191315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20140702192052) do
     t.string   "filename"
     t.string   "content_type"
     t.string   "description"
+    t.decimal  "rate", precision: 10, scale: 2
+    t.string   "unit"
   end
 
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree
@@ -53,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140702192052) do
 
   create_table "reviews", force: true do |t|
     t.integer  "provider_id"
+    t.integer  "rating"
     t.integer  "user_id"
     t.text     "review"
     t.datetime "created_at"
@@ -84,9 +87,4 @@ ActiveRecord::Schema.define(version: 20140702192052) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-
-  execute "SELECT setval('users_id_seq', 10000)"
-  execute "SELECT setval('providers_id_seq', 10000)"
-  execute "SELECT setval('ratings_id_seq', 10000)"
-  execute "SELECT setval('reviews_id_seq', 10000)"
 end

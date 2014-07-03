@@ -1,5 +1,4 @@
 class Provider < ActiveRecord::Base
-  has_many :ratings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   include Humanizer
   attr_accessor :bypass_humanizer
@@ -17,7 +16,7 @@ class Provider < ActiveRecord::Base
 
   before_save { |u| u.first_name = u.first_name.titleize }
   before_save { |u| u.last_name = u.last_name.titleize }
-  #before_save :check_file_size, on: :update
+  
   
   
   def profile_img=(input_data)
