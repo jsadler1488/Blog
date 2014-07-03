@@ -106,7 +106,7 @@
 					<%= f.label :rate, "Charging Rate (US Dollars):", {class: 'label'} %>
 				</div>
 				<div class="signUpInputDiv">
-					<%= f.number_field number_to_currency(:rate.value), class: 'text_field', step: 0.01%>
+					<%= f.number_field number_to_currency(:rate), class: 'text_field', step: 0.01%>
 				</div>
 			</div>
 			<div class="signUpBlockDiv">
