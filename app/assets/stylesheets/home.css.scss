@@ -314,6 +314,13 @@ div.signUpInputDiv  {
   padding-left:5px;
 }
 
+div.signUpMemoDiv  {
+  width:auto;
+  float:left; 
+  padding-left:5px;
+  height:175px;
+}
+
 div.signButtonDiv {
   float:left;
   text-align:right;
@@ -337,6 +344,21 @@ input.text_field{
   font-family: $font-stack;
   font-size:16px;
   text-shadow:$text-shadow;
+}
+
+.memo_text_field {
+  background-image:linear-gradient($theme-background, $theme-textbox-gradient);
+  border-radius:10px;
+  border-color:$theme-background;
+  box-shadow: 1px 1px 8px rgba(33,33,33,0.9);
+  padding:5px;
+  height:150px;
+  color: $theme-forecolor; 
+  border:0;
+  font-family: $font-stack;
+  font-size:16px;
+  text-shadow:$text-shadow;
+  
 }
 
 .combo_box {
