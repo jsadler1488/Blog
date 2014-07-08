@@ -21,6 +21,44 @@
 			<br />
 			<h2 class="label">Personal Information</h2>
 		</div>
+		<% if provider_signed_in? %>
+		<div class="label">Addresses are used for billing purposes only.<br/>Phone Numbers are disclosed to clients only for providers that elect to provide phone services<br/><br/></div>
+		<%else%>
+		<div class="label">Addresses and Phone Numbers are used for billing purposes only.<br/>ThisSite does not disclose client contact information to others.<br/><br/></div>
+		
+		<%end%>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :address1, "*Address", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :address1, {class: 'text_field'}%>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :address2, "Address 2", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :address2, {class: 'text_field'}%>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :city, "*City", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :city, {class: 'text_field'}%>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :state, "*State", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :state, {class: 'text_field'}%>
+			</div>
+		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :zip, "*Zip Code", {class: 'label'}%>
@@ -36,6 +74,25 @@
 			<div class="signUpInputDiv">
 
 				<%= f.email_field :email, {class: 'text_field'} %>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :phone, "*Phone Number:", {class: 'label'} %>
+			</div>
+			<div class="signUpInputDiv">
+
+				<%= f.telephone_field :phone, { class: 'text_field'} %>
+			</div>
+		</div>
+		
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :alt_phone, "*Alternate Number:", {class: 'label'} %>
+			</div>
+			<div class="signUpInputDiv">
+
+				<%= f.telephone_field :alt_phone, { class: 'text_field'} %>
 			</div>
 		</div>
 

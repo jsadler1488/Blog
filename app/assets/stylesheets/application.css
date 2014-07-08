@@ -16,7 +16,7 @@
 html, body {
 	background-color: #666666; 
 	height:100%;
-	
+	width:100%;
 }
 
 body {
@@ -26,5 +26,6 @@ body {
 .container {
 	min-height:100%;
 	position:relative;
-	min-width:1280px;
+	min-width:1200px;
+	max-width:1280px;
 }

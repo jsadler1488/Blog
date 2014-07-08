@@ -6,7 +6,7 @@
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
 	<div class="mainContentPrepare">
-		<div class="label">
+		<div class="signUpInputDiv label">
 			<%= devise_error_messages! %>
 		</div>
 		<div class="signUpBlockDiv">
@@ -33,6 +33,39 @@
 				<%= f.date_select :birthdate, {start_year: 1900, end_year: Date.today.year - 3, order: [:month, :day, :year], default: { year: 1975}}, {class: 'combo_box'} %>
 			</div>
 		</div>
+
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :address1, "Address*", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :address1, {class: 'text_field'}%>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :address2, "Address 2", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :address2, {class: 'text_field'}%>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :city, "City", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :city, {class: 'text_field'}%>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :state, "State", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.text_field :state, {class: 'text_field'}%>
+			</div>
+		</div>
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :zip, "Zip Code", {class: 'label'}%>
@@ -47,6 +80,22 @@
 			</div>
 			<div class="signUpInputDiv">
 				<%= f.email_field :email, {class: 'text_field'}  %>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :phone, "*Phone Number:", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.telephone_field :phone, {class: 'text_field'}  %>
+			</div>
+		</div>
+		<div class="signUpBlockDiv">
+			<div class="signUpLabelDiv">
+				<%= f.label :alt_phone, "Alternate Phone Number:", {class: 'label'}%>
+			</div>
+			<div class="signUpInputDiv">
+				<%= f.telephone_field :alt_phone, {class: 'text_field'}  %>
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
@@ -66,12 +115,15 @@
 			</div>
 		</div>
 		<div class="signUpBlockDiv">
-			<div class="signUpLabelDiv"></div>
 			<div class="signUpInputDiv">
-				<br />
-				<%= f.label "Human Verification", class: 'label' %>
+				<%= f.check_box :terms_of_service, {class: 'check_box'}  %>
+				<%= f.label :terms_of_service, "Checking this box indicates that you have read and agree to the Client Terms of Service and Privacy Policy", {class: 'check_box_label label'}%>
 			</div>
 		</div>
+		<div class="signUpInputDiv">
+			<%= f.label "Human Verification", class: 'label' %><br/>
+		</div>
+
 		<div class="signUpBlockDiv">
 			<div class="signUpLabelDiv">
 				<%= f.label :humanizer_answer, resource.humanizer_question, {class: 'label' } %>
