@@ -18,7 +18,7 @@ class Provider < ActiveRecord::Base
   validates :filename, allow_blank: true, format:
                             { with: %r{\.gif|jpg|png}i, message: 'incorrect format'}
   validates_acceptance_of :terms_of_service, acceptance: true
-
+  validates_format_of :city, with: ->(provider) {/\A[a-zA-Z ]*\z/i}
   validates_size_of :profile_image, maximum: 2.megabytes, message: "too large. Please limit to 2MB"
   include ActionView::Helpers::NumberHelper
   before_save :run_formatters

@@ -2,10 +2,10 @@
 
 one:
   provider_id: 
-  user_id: 
+  client_id: 
   review: MyString
 
 two:
   provider_id: 
-  user_id: 
+  client_id: 
   review: MyString

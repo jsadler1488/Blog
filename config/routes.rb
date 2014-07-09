@@ -1,21 +1,20 @@
 Rails.application.routes.draw do
 
-  
-  devise_for :providers,  :controllers => {registrations: 'registrations'}
-  devise_for :users, :controllers => {registrations: 'registrations'}
-  get 'provider_terms' => 'provider_terms_of_use#index'
-  get 'privacy' => 'privacy_policy#index'
-  get 'terms' => 'terms_of_use#index'
-  get 'provider/:id' => 'provider#show'
-  resources :providers do
-    resources :reviews
+  devise_for :clients, :controllers => {registrations: 'registrations'}
+  devise_for :providers,  :controllers => {registrations: 'registrations'}
+   get 'provider_terms' => 'provider_terms_of_use#index'
+   get 'privacy' => 'privacy_policy#index'
+   get 'terms' => 'terms_of_use#index'
+   get 'provider/:id' => 'provider#show'
+   resources :providers do
+     resources :reviews
   end
-  
-  resources :users do
-    resources :reviews
+
+   resources :clients do
+     resources :reviews
   end
-  get 'providers/:id/show_profile_image' => 'providers#show_profile_image'
-  root 'home#index'
+   get 'providers/:id/show_profile_image' => 'providers#show_profile_image'
+   root 'home#index'
 
 # Example of regular route:
 #   get 'products/:id' => 'catalog#view'

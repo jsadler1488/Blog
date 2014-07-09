@@ -13,7 +13,7 @@
 
 <% @provider.reviews.each do |review| %>
 <p>
-	Reviewer: <%= review.user.first_name + " " + review.user.last_name%>
+	Reviewer: <%= review.client.first_name + " " + review.client.last_name%>
 </p>
 
 <fieldset class="rating">

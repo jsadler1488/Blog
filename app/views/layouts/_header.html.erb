@@ -3,19 +3,19 @@
 		<%= link_to image_tag('logo.png'), root_path%>
 	</div>
 	<%= render 'layouts/devise_status'%>
-	<% if user_signed_in? || provider_signed_in?%>
-	<% if current_user %>
+	<% if client_signed_in? || provider_signed_in?%>
+	<% if current_client %>
 	<div class="actionBarLine">
 		<div class="actionBar">
 			<div>
-				<span><%= link_to destroy_user_session_path,
+				<span><%= link_to destroy_client_session_path,
 					method: :delete do%>Sign Out<%end%> </span>
 			</div>
 			<div>
-				<span><%= link_to(edit_user_registration_path) do %>Edit Profile<%end%></span>
+				<span><%= link_to(edit_client_registration_path) do %>Edit Profile<%end%></span>
 			</div>
 			<div class="actionDivStatus">
-				Client Signed in as: <%= current_user.first_name %> <%= current_user.last_name%>
+				Client Signed in as: <%= current_client.first_name %> <%= current_client.last_name%>
 			</div>
 
 		</div>
@@ -40,8 +40,8 @@
 </div>
 
 <div class="PostHeader">
-	<% if user_signed_in? %>
-	<%= link_to destroy_user_session_path,
+	<% if client_signed_in? %>
+	<%= link_to destroy_client_session_path,
 	method: :delete do%>
 	<div class="menu_item">
 		<span class="vMiddle">Sign Out</span>
@@ -52,7 +52,7 @@
 		<span class="vMiddle">Find A Counselor</span>
 	</div>
 	<%end%>
-	<%= link_to(edit_user_registration_path) do %>
+	<%= link_to(edit_client_registration_path) do %>
 	<div class="menu_item">
 		<span class="vMiddle">Edit Profile</span>
 	</div>
@@ -70,12 +70,12 @@
 	</div>
 	<%end%>
 	<% else  %>
-	<%= link_to(new_user_session_path) do%>
+	<%= link_to(new_client_session_path) do%>
 	<div class="menu_item">
 		<span class="vMiddle">Client Sign In</span>
 	</div>
 	<%end%>
-	<%= link_to(new_user_registration_path) do %>
+	<%= link_to(new_client_registration_path) do %>
 	<div class="menu_item">
 		<span class="vMiddle">Client Register</span>
 	</div>

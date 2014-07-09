@@ -10,9 +10,11 @@
 		<%= f.password_field :password, {autocomplete: "off", class: 'text_field'} %>
 
 	</div>
+	<% if !resource.new_record? %>
 	<div class="label">
 		(leave blank if you don't want to change it)
 	</div>
+	<%end%>
 </div>
 
 <div class="signUpBlockDiv">

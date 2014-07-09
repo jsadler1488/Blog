@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Client < ActiveRecord::Base
   include Humanizer
   has_many :reviews, dependent: :destroy
   attr_accessor :bypass_humanizer, :eula
@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
   validates :birthdate, presence: true
   validates :zip, presence: true, length: {is:5}
   validates :address1, presence: true
-  validates :city, presence: true
+  #validates :city, presence: true
   validates :state, presence: true
   validate :validate_phone, on: [:create, :update] #:phone, presence: true, length: {is: 10, wrong_length: "Phone Number must have 3 digit area code followed by 7 digit number"}
   validate :dob_check, on: :create
   validates_acceptance_of :terms_of_service, acceptance: true
-  validates_format_of :city, with: ->(user) {/\A[a-zA-Z]*\z/i}
+  validates_format_of :city, with: ->(client) {/\A[a-zA-Z ]*\z/i}
   include ActionView::Helpers::NumberHelper
   before_save :run_formatters
   def run_formatters

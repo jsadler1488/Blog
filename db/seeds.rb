@@ -11,18 +11,20 @@ for ix in 1..100
     password: 'testtest', \
     first_name: 'Test', \
     last_name: 'Provider' + ix.to_s, birthdate: Date.new(1977, 8, 9), \
-    zip: '23452', bypass_humanizer: true)
+    zip: '23452', bypass_humanizer: true, phone: '7574444321', \
+    address1: ix.to_s + 'Great Neck Rd', city: 'Virginia Beach', state: 'VA')
     
-  users = User.create(email: 'tu' + ix.to_s + '@mail.com', \
+  clients = Client.create(email: 'tu' + ix.to_s + '@mail.com', \
     password: 'testtest', \
     first_name: 'Test', \
-    last_name: 'User' + ix.to_s, birthdate: Date.new(1977, 8, 9), \
-    zip: '23454', bypass_humanizer: true)
-  reviews = Review.create(provider_id: providers.id, user_id: users.id, review: 'Good' + ix.to_s, rating: ix % 5 + 1)
-  reviews2 = Review.create(provider_id: providers.id, user_id: users.id, review: 'Bad' + ix.to_s, rating: ix % 2 + 1)
-  reviews3 = Review.create(provider_id: providers.id, user_id: users.id, review: 'Bad' + ix.to_s, rating: ix % 3 + 1)
-  reviews4 = Review.create(provider_id: providers.id, user_id: users.id, review: 'Bad' + ix.to_s, rating: ix % 4 + 1)
-  reviews5 = Review.create(provider_id: providers.id, user_id: users.id, review: 'Bad' + ix.to_s, rating: ix % 1 + 1)
+    last_name: 'Client' + ix.to_s, birthdate: Date.new(1977, 8, 9), \
+    zip: '23454', bypass_humanizer: true, phone: '7575551234', \
+    address1: ix.to_s + 'Little Neck Rd', city: 'Virginia Beach', state: 'VA')
+  reviews = Review.create(provider_id: providers.id, client_id: clients.id, review: 'Good' + ix.to_s, rating: ix % 5 + 1)
+  reviews2 = Review.create(provider_id: providers.id, client_id: clients.id, review: 'Bad' + ix.to_s, rating: ix % 2 + 1)
+  reviews3 = Review.create(provider_id: providers.id, client_id: clients.id, review: 'Bad' + ix.to_s, rating: ix % 3 + 1)
+  reviews4 = Review.create(provider_id: providers.id, client_id: clients.id, review: 'Bad' + ix.to_s, rating: ix % 4 + 1)
+  reviews5 = Review.create(provider_id: providers.id, client_id: clients.id, review: 'Bad' + ix.to_s, rating: ix % 1 + 1)
 end
 
 if providers.errors.blank?
@@ -45,12 +47,12 @@ else
      end
 end
 
-if users.errors.blank?
-    puts "***users seeding completed with no errors***"
+if clients.errors.blank?
+    puts "***clients seeding completed with no errors***"
     
 else
-    puts "users seeding failed due to below reasons:"
-    users.errors.each do |x, y|
+    puts "clients seeding failed due to below reasons:"
+    clients.errors.each do |x, y|
        puts"#{x} #{y}" # x will be the field name and y will be the error on it
      end
 end

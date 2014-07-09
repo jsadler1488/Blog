@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :authenticate_user!, except: [:show_profile_image, :index, :show] 
+  before_action :authenticate_client!, except: [:show_profile_image, :index, :show] 
   before_action :authenticate_provider!, except: [:show_profile_image, :index, :show]
   def index
     @providers = Provider.joins(:reviews)\
