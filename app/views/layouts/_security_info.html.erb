@@ -1,0 +1,26 @@
+<div>
+	<br/>
+	<h2 class="label">Security Information</h2>
+</div>
+<div class="signUpBlockDiv">
+	<div class="signUpLabelDiv">
+		<%= f.label :password, "Password:", {class: 'label'}%>
+	</div>
+	<div class="signUpInputDiv">
+		<%= f.password_field :password, {autocomplete: "off", class: 'text_field'} %>
+
+	</div>
+	<div class="label">
+		(leave blank if you don't want to change it)
+	</div>
+</div>
+
+<div class="signUpBlockDiv">
+	<div class="signUpLabelDiv">
+		<%= f.label :password_confirmation, "Password Confirmation:", {class: 'label'} %>
+	</div>
+	<div class="signUpInputDiv">
+
+		<%= f.password_field :password_confirmation, {autocomplete: "off", class: 'text_field'} %>
+	</div>
+</div>
