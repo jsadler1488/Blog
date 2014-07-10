@@ -12,7 +12,8 @@ for ix in 1..100
     first_name: 'Test', \
     last_name: 'Provider' + ix.to_s, birthdate: Date.new(1977, 8, 9), \
     zip: '23452', bypass_humanizer: true, phone: '7574444321', \
-    address1: ix.to_s + 'Great Neck Rd', city: 'Virginia Beach', state: 'VA')
+    address1: ix.to_s + 'Great Neck Rd', city: 'Virginia Beach', state: 'VA', \
+    summary: 'PhD in Psycology and Masters in Counseling. LPC/LCSW/PhD/MD. Specializes in mood disorders, anxiety, depression.')
     
   clients = Client.create(email: 'tu' + ix.to_s + '@mail.com', \
     password: 'testtest', \

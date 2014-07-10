@@ -1,0 +1,65 @@
+$theme-background: #444444;
+$theme-background-gradient: #888888;
+$theme-forecolor: #00A2E8;
+$no-text-decoration: none;
+$text-shadow: 1px 8px 8px rgba(0,0,0,0.5);
+$text-shadow-hover: 1px 1px 8px rgba(33,33,33,1.0);
+$theme-gradient: #EEEEAA;
+.providerGrid
+{padding-top:20px;
+}
+
+.providerRow
+{
+  margin-top:20px;
+  box-shadow:1px 1px 8px rgba(33, 33, 33, 0.9);
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
+  border-bottom-right-radius:15px;    
+}
+
+.providerHeaderRow
+{
+  border:solid #FFFF00 1px;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;  
+  background-color: $theme-background-gradient
+}
+
+.providerInfoRow
+{
+  border:solid #FFFF00 1px;
+  border-bottom-right-radius:15px; 
+   background-color: $theme-background;
+   height:150px;
+}
+
+.providerInfo {
+  float:left;
+  padding-left:15px;
+  max-width:700px;
+  min-width:500px;
+}
+
+.providerImage
+{
+  float:left;
+  width:75px;
+}
+
+.rateLabel{  
+  color: $theme-forecolor;
+  text-decoration: $no-text-decoration;
+  text-shadow:$text-shadow;
+}
+
+.viewLink{
+  float:left;
+}
+
+.ratings {
+  height:50px;
+}
+
+
+

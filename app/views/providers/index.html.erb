@@ -1,44 +1,67 @@
 <div class="mainContent">
-	<div class="mainContentHeader">
-		Find A Provider
+	<div class="signUpBlockDiv">
+		<h1 class="label">Find A Provider</h1>
 	</div>
-	Sort By: <%= select_tag(:sorter, options_for_select([['Highest Rating', 1],['Name', 2]], params[:sorter])) %>
-	<%= submit_tag "Refine"%>
-	<table>
-		<tr>
-			<th>Title</th>
-			<th>Text</th>
-			<th colspan="3"></th>
-		</tr>
+	<div class="label">
+		Sort By: <%= select_tag(:sorter, options_for_select([['Highest Rating', 1],['Name', 2]], params[:sorter]), class: 'combo_box') %>
+		<%= submit_tag "Refine", class: 'submit'%>
+	</div>
+	<div class="providerGrid">
 		<% @providers.each do |p| %>
-		<tr>
-			<th><%= p.first_name %></th>
-			<th><%= p.last_name %></th>
-			<th><%= link_to 'Show', provider_path(p) %></th>
-			<% if (p.reviews.count == 0) %>
-			<th>This provider has not yet been rated</th>
-			<% else %>
-			<th>
-			<fieldset class="rating">
-				<% (1..5).each do |i|%>
-				<% if p.reviews.average(:rating) >= i %>
-				<label for="star" class="ratingPos"></label>
-				<%else%>
-				<label for "star" class="ratingNeg"></label>
-				<%end%>
-				<% end %>
+		<div class="providerRow">
+			<div class="providerHeaderRow">
+				<div>
+					<h3 class="label"><%= p.first_name %> <%= p.last_name %></h3>
+				</div>
+			</div>
+			<div class="providerInfoRow">
+				<div class="providerImage">
+					<%= image_tag url_for(action: :show_profile_image, :id => p.id,
+					:controller => :providers), size: "75x113", alt: "" %>
+				</div>
+				<div class="providerInfo">
+					<div class="label">
+						<% if p.summary.to_s.length > 255%>
+						<%= p.summary[0..255] %>...
+						<%else%>
+						<%= p.summary %>
+						<%end%>
 
-			</fieldset></th>
-			<th><%= p.reviews.average(:rating) %>(<%= p.reviews.count %> Ratings)</th>
-			
-			<%end%>
-			<% if p.rate.blank? || p.unit.blank? %>
-			<th>Rates not yet set</th>
-			<%else%>
-			<th>Rate: <%= number_to_currency(p.rate) %> Per <%= p.unit %></th>
-			<%end%>
-		</tr>
+					</div>
+					<div class="ratings label">
+						<% if (p.reviews.count == 0) %>
+						This provider has not yet been rated
+						<% else %>
+						<fieldset class="rating">
+							<% (1..5).each do |i|%>
+							<% if p.reviews.average(:rating) >= i %>
+							<label for="star" class="ratingPos"></label>
+							<%else%>
+							<label for="star" class="ratingNeg"></label>
+							<%end%>
+							<% end %>
+							<%= p.reviews.average(:rating) %> (<%= p.reviews.count %> Ratings)
+						</fieldset>
+
+						<%end%>
+					</div>
+					<div>
+						<div class="viewLink">
+							<%= link_to 'View Provider', provider_path(p) %>
+						</div>
+						<div class="rateLabel">
+							<% if p.rate.blank? || p.unit.blank? %>
+
+							This provider has not yet set a rate
+							<%else%>
+							Rate: <%= number_to_currency(p.rate) %> Per <%= p.unit %>
+							<%end%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<%end%>
-	</table>
-	<%= will_paginate @providers%>
+		<%= will_paginate @providers%>
+	</div>
 </div>
