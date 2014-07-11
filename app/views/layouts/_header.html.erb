@@ -14,6 +14,11 @@
 			<div>
 				<span><%= link_to(edit_client_registration_path) do %>Edit Profile<%end%></span>
 			</div>
+			<% if client_signed_in? %>
+			<div>
+				<span><%= link_to(providers_path) do %>Find A Counselor<%end%></span>
+			</div>
+			<%end%>
 			<div class="actionDivStatus">
 				Client Signed in as: <%= current_client.first_name %> <%= current_client.last_name%>
 			</div>
