@@ -10,6 +10,12 @@
 	<h2 class="label">Confirm Changes and Update</h2>
 </div>
 <div class="signUpBlockDiv">
+	<div class="signUpInputDiv">
+		<%= f.check_box :public, {class: 'check_box'}  %>
+		<%= f.label :public, "Make this profile public to search results and allow clients to request information for sceduling appointments", {class: 'check_box_label label'}%>
+	</div>
+</div>
+<div class="signUpBlockDiv">
 	<div class="signUpBlockDiv">
 		<div class="signUpLabelDiv">
 			<%= f.label :current_password, "*Current Password:", {class: 'label'} %>

@@ -42,6 +42,27 @@
 <%end%>
 <div>
 	<br/>
+	<h2 class="label">Service Methods Offered</h2>
+</div>
+<div class="signUpBlockDiv">
+	<div class="signUpInputDiv">
+		<%= f.check_box :service_by_phone, {class: 'check_box'}  %>
+		<%= f.label :service_by_phone, "Phone", {class: 'check_box_label label'}%>
+	</div>
+</div>
+<div class="signUpBlockDiv">
+	<div class="signUpInputDiv">
+		<%= f.check_box :service_by_chat, {class: 'check_box'}  %>
+		<%= f.label :service_by_chat, "Chat", {class: 'check_box_label label'}%>
+	</div>
+</div>
+<div class="signUpBlockDiv">
+	<div class="signUpInputDiv">
+		<%= f.check_box :service_by_email, {class: 'check_box'}  %>
+		<%= f.label :service_by_email, "Email", {class: 'check_box_label label'}%>
+	</div>
+</div>
+<div>
 	<h2 class="label">Payment Information</h2>
 </div>
 <div class="signUpBlockDiv">

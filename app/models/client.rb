@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   include Humanizer
   has_many :reviews, dependent: :destroy
-  attr_accessor :bypass_humanizer, :eula
+  attr_accessor :bypass_humanizer
   require_human_on :create, unless: :bypass_humanizer
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -22,6 +22,9 @@ class Client < ActiveRecord::Base
     self.first_name = self.first_name.titleize
     self.last_name = self.last_name.titleize
     self.phone = number_to_phone(self.phone, area_code: true)
+    self.address1 = self.address1.titleize
+    self.city = self.city.titleize
+    self.state = self.state.titleize
   end
 
   def validate_phone

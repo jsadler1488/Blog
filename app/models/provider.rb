@@ -2,7 +2,6 @@ class Provider < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   include Humanizer
   attr_accessor :bypass_humanizer
-  attr_accessor :address1, :address2
   require_human_on :create, unless: :bypass_humanizer
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -26,13 +25,18 @@ class Provider < ActiveRecord::Base
     self.first_name = self.first_name.titleize
     self.last_name = self.last_name.titleize
     self.phone = number_to_phone(self.phone, area_code: true)
+    self.address1 = self.address1.titleize
+    self.city = self.city.titleize
+    self.state = self.state.titleize
   end
 
   def profile_img=(input_data)
     self.filename = input_data.original_filename
     self.content_type = input_data.content_type.chomp
     self.profile_image = input_data.read
-
+    #if self.profile_image.empty?
+      #self.profile_image = 
+    #end
   end
   private
 
@@ -41,5 +45,4 @@ class Provider < ActiveRecord::Base
       errors[:base] << "Must be 18 years of age to create an account. Those under 18 must have parent or guardian assistance."
     end
   end
-
 end

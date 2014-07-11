@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709191121) do
+ActiveRecord::Schema.define(version: 20140711153209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20140709191121) do
     t.binary   "profile_image"
     t.string   "filename"
     t.string   "content_type"
-    t.string   "description"
     t.decimal  "rate"
     t.string   "unit"
     t.text     "summary"
@@ -75,19 +74,14 @@ ActiveRecord::Schema.define(version: 20140709191121) do
     t.string   "state"
     t.string   "phone"
     t.string   "alt_phone"
+    t.boolean  "service_by_phone"
+    t.boolean  "service_by_chat"
+    t.boolean  "service_by_email"
+    t.boolean  "public"
   end
 
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree
   add_index "providers", ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
-
-  create_table "ratings", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "rating"
-    t.integer  "provider_id"
-  end
-
-  add_index "ratings", ["provider_id"], name: "index_ratings_on_provider_id", using: :btree
 
   create_table "reviews", force: true do |t|
     t.integer  "provider_id"
@@ -98,8 +92,7 @@ ActiveRecord::Schema.define(version: 20140709191121) do
     t.datetime "updated_at"
   end
 
-  add_index "reviews", ["provider_id"], name: "index_reviews_on_provider_id", using: :btree
   add_index "reviews", ["client_id"], name: "index_reviews_on_user_id", using: :btree
+  add_index "reviews", ["provider_id"], name: "index_reviews_on_provider_id", using: :btree
 
-  
 end
