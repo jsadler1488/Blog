@@ -5,7 +5,7 @@ class ProvidersController < ApplicationController
     @providers = Provider.joins("LEFT OUTER JOIN reviews ON reviews.provider_id = providers.id") \
       .where(public: true) \
       .group("providers.id")\
-      .order("avg(reviews.rating) DESC")\
+      .order("avg(reviews.rating) DESC NULLS LAST")\
       .paginate(page: params[:page], per_page: 10)
     
   end

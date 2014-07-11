@@ -11,6 +11,8 @@ $theme-ratings-background: #FF8800;
 $theme-ratings-background-gradient: #444444;
 $theme-rate-background: #00FF00;
 $theme-rate-background-gradient: #444444;
+$theme-link-background: #888888;
+$theme-link-background-gradient: #444444;
 .providerGrid
 {padding-top:20px;
 }
@@ -105,6 +107,15 @@ $theme-rate-background-gradient: #444444;
   border:solid 1px #FFFF00;
   float:left;
   padding:10px;
+  text-align:center;
+}
+
+.gridLinkBox
+{
+  background-image: linear-gradient($theme-link-background, $theme-link-background-gradient);  
+  border-radius:5px;
+  border:solid 1px #FFFF00;
+  float:left;
   text-align:center;
 }
 
