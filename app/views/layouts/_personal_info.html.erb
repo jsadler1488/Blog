@@ -25,7 +25,7 @@
 <% if resource.new_record? %>
 <div class="signUpBlockDiv">
 	<div class="signUpLabelDiv">
-		<%= f.label :first_name, "First Name:", {class: 'label'} %>
+		<%= f.label :first_name, "*First Name:", {class: 'label'} %>
 	</div>
 	<div class="signUpInputDiv">
 		<%= f.text_field :first_name, {class: 'text_field',autofocus: true}  %>
@@ -33,7 +33,7 @@
 </div>
 <div class="signUpBlockDiv">
 	<div class="signUpLabelDiv">
-		<%= f.label :last_name, "Last Name:", {class: 'label'} %>
+		<%= f.label :last_name, "*Last Name:", {class: 'label'} %>
 	</div>
 	<div class="signUpInputDiv">
 		<%= f.text_field :last_name, {class: 'text_field'}  %>
@@ -41,7 +41,7 @@
 </div>
 <div class="signUpBlockDiv">
 	<div class="signUpLabelDiv">
-		<%= f.label :birthdate, "Birthdate:", {class: 'label'} %>
+		<%= f.label :birthdate, "*Birthdate:", {class: 'label'} %>
 	</div>
 	<div class="signUpInputDiv">
 		<%= f.date_select :birthdate, {start_year: 1900, end_year: Date.today.year - 3, order: [:month, :day, :year], default: { year: 1975}}, {class: 'combo_box'} %>

@@ -9,12 +9,14 @@
 	<br/>
 	<h2 class="label">Confirm Changes and Update</h2>
 </div>
+<% if provider_signed_in? %>
 <div class="signUpBlockDiv">
 	<div class="signUpInputDiv">
 		<%= f.check_box :public, {class: 'check_box'}  %>
 		<%= f.label :public, "Make this profile public to search results and allow clients to request information for sceduling appointments", {class: 'check_box_label label'}%>
 	</div>
 </div>
+<%end%>
 <div class="signUpBlockDiv">
 	<div class="signUpBlockDiv">
 		<div class="signUpLabelDiv">

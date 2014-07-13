@@ -12,7 +12,11 @@
 	</div>
 	<% if !resource.new_record? %>
 	<div class="label">
-		(leave blank if you don't want to change it)
+		(Leave blank if you don't want to change it)
+	</div>
+	<%else%>
+	<div class="label">
+		(Passwords must contain at least 8 characters)
 	</div>
 	<%end%>
 </div>
