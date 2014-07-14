@@ -17,7 +17,7 @@ class Provider < ActiveRecord::Base
   validates_size_of :profile_image, maximum: 2.megabytes, message: "too large. Please limit to 2MB"
   validates_acceptance_of :terms_of_service, acceptance: true
   include Humanizer
-  attr_accessor :bypass_humanizer
+  attr_accessor :bypass_humanizer, :sort_by
   require_human_on :create, unless: :bypass_humanizer
   include ActionView::Helpers::NumberHelper
   before_save :run_formatters

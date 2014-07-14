@@ -1,0 +1,113 @@
+<div class="label">
+	<%= form_tag providers_path, method: 'get' %>
+	Sort By: <%= select_tag(:sort_by, options_for_select(['Highest Rating','Lowest Rate', 'Available By Phone', 'Available By Chat', 'Available By Email'], params[:sort_by]), onchange: 'this.form.submit()',  class: 'combo_box') %>
+	<%= link_to "Advanced Search"%>
+</div>
+<div class="providerGrid">
+	<% @providers.each do |p| %>
+	<div class="providerRow">
+		<div class="providerHeaderRow">
+			<div>
+				<h3 class="gridLabel"><%= link_to (p.first_name + " " + p.last_name), provider_path(p) %></h3>
+			</div>
+		</div>
+		<div class="providerInfoRow">
+			<div class="providerImage">
+				<% if p.profile_image.blank? %>
+				<%= link_to image_tag('no_photo_user.png', size: "75x113"), provider_path(p)%>
+				<%else%>
+				<%= link_to image_tag(url_for(action: :show_profile_image, :id => p.id,
+				:controller => :providers), size: "75x113", alt: ""), provider_path(p) %>
+				<%end%>
+			</div>
+			<div class="providerInfo">
+				<div class="summaryBox label">
+					<% if p.summary.blank? %>
+					Summary has not yet been submitted for this provider.
+					<%else%>
+					<% if p.summary.to_s.length > 255%>
+					<%= p.summary[0..255] %>...
+					<%else%>
+					<%= p.summary %>
+					<%end%>
+					<%end%>
+
+				</div>
+				<div class="infoBox">
+					<div class="ratings label">
+						<% if (p.reviews.count == 0) %>
+						This provider has not yet been rated
+						<% else %>
+						<fieldset class="rating">
+							<% (1..5).each do |i|%>
+							<% if p.reviews.average(:rating) >= i %>
+							<label for="star" class="ratingPos"></label>
+							<%else%>
+							<label for="star" class="ratingNeg"></label>
+							<%end%>
+							<% end %>
+							<%= p.reviews.average(:rating) %> (<%= p.reviews.count %> Ratings)
+						</fieldset>
+
+						<%end%>
+					</div>
+					<div class="avail">
+						<div class="label">
+
+							<div>
+								Available By:
+							</div>
+							<% if !p.service_by_phone? && !p.service_by_chat? && !p.service_by_email? %>
+							<div>
+								Provider is not yet available
+							</div>
+							<%else%>
+							<% if p.service_by_phone? %>
+							<div>
+								<div class="serviceBox">
+									Phone
+								</div>
+							</div>
+							<%end%>
+							<% if p.service_by_chat? %>
+							<div class="padChatBox">
+								<div class="serviceBox">
+									Chat
+								</div>
+							</div>
+							<%end%>
+							<% if p.service_by_email? %>
+							<div class="padEmailBox">
+								<div class="serviceBox">
+									Email
+								</div>
+							</div>
+							<%end%>
+							<%end%>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="rate">
+				<div>
+					<div class="gridLinkBox">
+						<%= link_to 'View Provider', provider_path(p) %>
+					</div>
+				</div>
+				<div class="padToLinkBox">
+					<div class="label rateBox">
+						<% if p.rate.blank? || p.unit.blank? %>
+
+						This provider has not yet set a rate
+						<%else%>
+						Rate: <%= number_to_currency(p.rate) %> Per <%= p.unit %>
+						<%end%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%end%>
+	<%= will_paginate @providers%>
+</div>

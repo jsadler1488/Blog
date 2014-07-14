@@ -1,7 +1,9 @@
 $theme-background: #444444;
 $theme-background-gradient: #888888;
 $theme-forecolor: #00A2E8;
+$grid-label-forecolor: #FFFF00;
 $no-text-decoration: none;
+
 $text-shadow: 1px 8px 8px rgba(0,0,0,0.5);
 $text-shadow-hover: 1px 1px 8px rgba(33,33,33,1.0);
 $theme-gradient: #EEEEAA;
@@ -13,6 +15,8 @@ $theme-rate-background: #00FF00;
 $theme-rate-background-gradient: #444444;
 $theme-link-background: #888888;
 $theme-link-background-gradient: #444444;
+$font-stack:  Segoe UI, sans-serif;
+
 .providerGrid
 {padding-top:20px;
 }
@@ -32,7 +36,9 @@ $theme-link-background-gradient: #444444;
   border:solid #FFFF00 1px;
   border-top-left-radius:15px;
   border-top-right-radius:15px;  
-  background-color: $theme-background-gradient
+  background-color: $theme-background-gradient;
+  padding-left:15px;
+  height:35px;
 }
 
 .providerInfoRow
@@ -112,11 +118,58 @@ $theme-link-background-gradient: #444444;
 
 .gridLinkBox
 {
-  background-image: linear-gradient($theme-link-background, $theme-link-background-gradient);  
-  border-radius:5px;
+  background-image: linear-gradient($theme-background, $theme-background-gradient, $theme-forecolor, $theme-gradient);
+  background-size: auto 300%;
+  background-position: 0 0; 
+  width: 150px;
+  font-size: 16px;
+  font-family: $font-stack;
+  color:$theme-forecolor;
+  border-radius: 5px;  
+  box-shadow: 1px 1px 8px rgba(33,33,33,0.9);  
+  transition: all 0.5s;  
+  text-shadow:$text-shadow;
   border:solid 1px #FFFF00;
   float:left;
   text-align:center;
+  padding:10px;  
+}
+
+.padToLinkBox
+{
+  padding-left:190px;
+}
+
+.padChatBox
+{
+  padding-left:55px;
+}
+
+.padEmailBox
+{
+  padding-left:110px;
+}
+
+.gridLinkBox:hover
+{
+  background-position: 0 100%;
+  box-shadow: 1px 1px 8px $theme-forecolor;
+  color:#000000;
+  cursor:pointer;
+  text-shadow:$text-shadow-hover;
+}
+
+.gridLinkBox:active
+{
+  position:relative;
+  top:1px;
+}
+
+.gridLabel
+{
+  color: $grid-label-forecolor;
+  text-shadow: $text-shadow;
+  margin:5px;
 }
 
 .infoBox {
