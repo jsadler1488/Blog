@@ -1,0 +1,41 @@
+<div class="providerInfoSingle">
+	<div class="providerProfilePhoto">
+		<%= image_tag url_for(action: :show_profile_image, :id => @provider.id,
+		:controller => :providers), size: "150x200", class: 'providerFullImage'%>
+	</div>
+	<div class="providerProfileInfo label">
+		<div>
+			<%= simple_format(@provider.summary) %>
+		</div>
+		<div class="providerPostInfo label">
+			<div class="avail_singl avail">
+				<%= render partial: 'layouts/avail_control', locals: {p: @provider}%>
+			</div>
+			<div class="providerRate">
+				<%= render partial: 'layouts/rate_view', locals: {p: @provider}%>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="providerSchedAppt">
+		<div class="gridLinkSchedBox gridLinkBox">
+			<%= link_to 'Contact This Provider', provider_path(@provider) %>
+		</div>
+	</div>
+</div>
+
+<div>
+	<% @provider.reviews.each do |review| %>
+
+	<p>
+		Reviewer: <%= review.client.first_name + " " + review.client.last_name%>
+	</p>
+	<%= render partial: '/layouts/single_rating_control', locals: {review: review} %>
+	Review: <%= review.review %>
+
+	<%end%>
+	<p>
+		<%= link_to 'Back To Providers', providers_path%>
+	</p>
+</div>

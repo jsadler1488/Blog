@@ -19,7 +19,7 @@
 				<%= link_to image_tag(url_for(action: :show_profile_image, id: p.id,
 				controller: :providers), size: "75x100", alt: ""), provider_path(p) %>
 				<%end%>
-				
+
 			</div>
 			<div class="providerInfo">
 				<div class="summaryBox label">
@@ -35,42 +35,9 @@
 
 				</div>
 				<div class="infoBox">
-					<%= render partial: 'layouts/ratings_control', locals: {p: p}%>						
+					<%= render partial: 'layouts/ratings_control', locals: {p: p}%>
 					<div class="avail">
-						<div class="label">
-
-							<div>
-								Available By:
-							</div>
-							<% if !p.service_by_phone? && !p.service_by_chat? && !p.service_by_email? %>
-							<div>
-								Provider is not yet available
-							</div>
-							<%else%>
-							<% if p.service_by_phone? %>
-							<div>
-								<div class="serviceBox">
-									Phone
-								</div>
-							</div>
-							<%end%>
-							<% if p.service_by_chat? %>
-							<div class="padChatBox">
-								<div class="serviceBox">
-									Chat
-								</div>
-							</div>
-							<%end%>
-							<% if p.service_by_email? %>
-							<div class="padEmailBox">
-								<div class="serviceBox">
-									Email
-								</div>
-							</div>
-							<%end%>
-							<%end%>
-						</div>
-
+						<%= render partial: 'layouts/avail_control', locals: {p: p}%>
 					</div>
 				</div>
 			</div>
@@ -81,14 +48,7 @@
 					</div>
 				</div>
 				<div class="padToLinkBox">
-					<div class="label rateBox">
-						<% if p.rate.blank? || p.unit.blank? %>
-
-						This provider has not yet set a rate
-						<%else%>
-						Rate: <%= number_to_currency(p.rate) %> Per <%= p.unit %>
-						<%end%>
-					</div>
+					<%= render partial: 'layouts/rate_view', locals: {p: p}%>
 				</div>
 			</div>
 		</div>

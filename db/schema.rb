@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711153209) do
+ActiveRecord::Schema.define(version: 20140715200425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140711153209) do
     t.string   "state"
     t.string   "phone"
     t.string   "alt_phone"
+    t.string   "status"
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140711153209) do
     t.boolean  "service_by_chat"
     t.boolean  "service_by_email"
     t.boolean  "public"
+    t.string   "status"
   end
 
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree

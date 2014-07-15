@@ -187,8 +187,60 @@ $font-stack:  Segoe UI, sans-serif;
   width:250px;
 }
 
+
+
 .rate
 {
   padding-left:95px;
   padding-top:110px;
+}
+
+/*********** single provider methods *************/
+.avail_singl
+{
+  padding-top:15px;
+}
+
+div.providerProfilePhoto
+{
+  margin-top:10px;
+  float:left;
+}
+
+img.providerFullImage
+{
+  border-radius:15px;
+}
+
+div.providerPostInfo
+{
+  padding-left:15px;
+  float:left;
+  width:400px;
+}
+
+div.providerSchedAppt {
+  width:250px;
+  float:left;
+}
+
+div.gridLinkSchedBox {
+  width:200px;
+}
+
+div.providerRate {
+  padding-left:15px;
+  float:left;
+}
+
+div.providerProfileInfo
+{
+  float:left;
+  padding-left:15px;
+  width:670px;
+}
+
+div.providerInfoSingle
+{
+  height:300px;
 }

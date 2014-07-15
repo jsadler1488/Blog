@@ -431,12 +431,33 @@ input[type=checkbox].check_box:checked + label.check_box_label {
   text-shadow:$text-shadow;
 }
 
-
-
-
-
 div.mainContentPrepare {
   width:100%; 
   padding-top:15px
 }
 
+.status_combo_box {
+  background-image:linear-gradient($theme-background, $theme-textbox-gradient);
+  border-radius:10px;
+  border-color:$theme-background;
+  box-shadow: 1px 1px 8px rgba(33,33,33,0.9);
+  padding:5px;
+  height:35px;
+  color: $theme-forecolor; 
+  border:0;
+  font-family: $font-stack;
+  font-size:16px;
+  text-shadow:$text-shadow;
+  outline:none;
+}
+
+.status_combo_box:focus {
+  box-shadow: 0px 1px 8px $theme-forecolor;
+  border:0;
+}
+
+.status_combo_box option {
+  background-color:$theme-background;
+  border:none;
+  outline:none;
+}

@@ -1,35 +1,6 @@
-<p>
-	<strong>Title:</strong>
-	<%= @provider.first_name %> <%= @provider.last_name %>
-</p>
-<p>
-	<%= image_tag url_for(action: :show_profile_image, :id => @provider.id, 
-	:controller => :providers), size: "150x200" %>
-			
-</p>
-<p>
-	<strong>Text:</strong>
-	<%= @provider.zip %>
-</p>
-
-<% @provider.reviews.each do |review| %>
-<p>
-	Reviewer: <%= review.client.first_name + " " + review.client.last_name%>
-</p>
-
-<fieldset class="rating">
-	<% (1..5).each do |i|%>
-	<% if review.rating >= i %>
-	<label for="star" class="ratingPos"></label>
-	<%else%>
-	<label for="star" class="ratingNeg"></label>
-	<%end%>
-	<% end %>
-
-</fieldset>
-Review: <%= review.review %>
-
-<%end%>
-<p>
-	<%= link_to 'Back To Providers', providers_path%>
-</p>
+<div class="mainContent">
+	<div class="signUpBlockDiv">
+		<h1 class="label"><%= @provider.first_name %> <%= @provider.last_name %></h1>
+	</div>
+	<%= render partial: 'layouts/provider_view'%>
+</div>
