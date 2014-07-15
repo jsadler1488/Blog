@@ -86,7 +86,7 @@
 		<%= f.label :state, "*State", {class: 'label'}%>
 	</div>
 	<div class="signUpInputDiv">
-		<%= f.select(:state, options_for_select(us_states, :state),{selected: params[:state]}, {class: 'combo_box'}) %>
+		<%= f.select(:state, options_for_select(us_states, selected: f.object.state),{}, {class: 'combo_box'}) %>
 	</div>
 </div>
 <div class="signUpBlockDiv">

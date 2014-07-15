@@ -38,7 +38,7 @@ class Provider < ActiveRecord::Base
     self.phone = number_to_phone(self.phone, area_code: true)
     self.address1 = self.address1.titleize
     self.city = self.city.titleize
-    self.state = self.state.titleize
+    self.state = self.state.upcase
   end
 
   def dob_check
