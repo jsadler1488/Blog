@@ -18,6 +18,10 @@ class ProvidersController < ApplicationController
     @image = @provider.profile_image
     send_data @image, type: 'image/png', disposition: 'inline'
   end
+  
+  def update
+    
+  end
 
   private
 

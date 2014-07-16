@@ -441,14 +441,15 @@ div.mainContentPrepare {
   border-radius:10px;
   border-color:$theme-background;
   box-shadow: 1px 1px 8px rgba(33,33,33,0.9);
-  padding:5px;
-  height:35px;
+  padding-left:5px;
+  //height:35px;
   color: $theme-forecolor; 
   border:0;
   font-family: $font-stack;
-  font-size:16px;
+  font-size:12px;
   text-shadow:$text-shadow;
   outline:none;
+  font-weight:bold;
 }
 
 .status_combo_box:focus {

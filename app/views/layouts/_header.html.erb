@@ -19,6 +19,7 @@
 				<span><%= link_to(providers_path) do %>Find A Counselor<%end%></span>
 			</div>
 			<%end%>
+			
 			<div class='status_combo_box'>
 				<select></select>
 			</div>
@@ -38,9 +39,10 @@
 			<div>
 				<span><%= link_to(edit_provider_registration_path) do %>Edit Profile<%end%></span>
 			</div>
-			<div class='status_combo_box'>
-				Sort By: <%= select_tag(:status, options_for_select(['Highest Rating','Lowest Rate', 'Available By Phone', 'Available By Chat', 'Available By Email'], params[:sort_by]), onchange: 'this.form.submit()',  class: 'combo_box') %>
-	
+			<div>
+				<%= form_for current_provider do |p| %>	
+					Status: <%= p.select(:status, options_for_select([['Offline',1], ['Online',2], ['Away',3]], selected: p.object.status),{}, {onchange: 'this.form.submit()',  class: 'status_combo_box'}) %>
+				<%end%>
 			</div>
 			<div class="actionDivStatus">
 				<span class="label"> Provider Signed in as: <%= current_provider.first_name %> <%= current_provider.last_name%> </span>

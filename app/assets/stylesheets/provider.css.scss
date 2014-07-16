@@ -49,6 +49,25 @@ $font-stack:  Segoe UI, sans-serif;
    height:165px;
 }
 
+.commentInfoRow {
+  border:solid #FFFF00 1px;
+  border-bottom-right-radius:15px; 
+   background-color: $theme-background;
+}
+
+.commentHeader
+{
+  padding-top:7px;
+  padding-bottom:7px;
+  font-weight:bold;
+  overflow:hidden;
+}
+
+.commentHeaderRow
+{
+  //
+  background-color: #666666
+}
 .providerInfo {
   padding-top:5px;
   float:left;
@@ -205,7 +224,6 @@ $font-stack:  Segoe UI, sans-serif;
 div.providerProfilePhoto
 {
   margin-top:10px;
-  float:left;
 }
 
 img.providerFullImage
@@ -218,7 +236,18 @@ div.providerPostInfo
   padding-left:15px;
   float:left;
   width:400px;
-  height:170px;
+  //height:170px;
+}
+
+div.column1 {
+  float:left;
+  width:150px;
+}
+
+div.column2 {
+  float:left;
+  width:500px;
+  
 }
 
 div.providerSchedAppt {
@@ -227,7 +256,8 @@ div.providerSchedAppt {
 }
 
 div.gridLinkSchedBox {
-  width:200px;
+  width:125px;
+  font-size: 12px;
 }
 
 div.providerRate {
@@ -244,5 +274,15 @@ div.providerProfileInfo
 
 div.providerInfoSingle
 {
-  height:300px;
+  //height:750px;
+}
+
+div.floatClear {
+  clear:both;
+}
+
+div.reviewPortion
+{
+  padding:15px;
+  padding-top:5px;
 }
