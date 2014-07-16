@@ -14,7 +14,7 @@
 		<div class="providerInfoRow">
 			<div class="providerImage">
 				<% if p.profile_image.blank? %>
-				<%= link_to image_tag('no_photo_user.png', size: THUMBNAIL_SIZE), provider_path(p)%>
+				<%= link_to image_tag('no_photo_user.png', size: "75x100"), provider_path(p)%>
 				<%else%>
 				<%= link_to image_tag(url_for(action: :show_profile_image, id: p.id,
 				controller: :providers), size: "75x100", alt: ""), provider_path(p) %>

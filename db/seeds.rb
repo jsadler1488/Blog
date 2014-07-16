@@ -13,7 +13,8 @@ for ix in 1..100
     last_name: 'Provider' + ix.to_s, birthdate: Date.new(1977, 8, 9), \
     zip: '23452', bypass_humanizer: true, phone: '7574444321', \
     address1: ix.to_s + 'Great Neck Rd', city: 'Virginia Beach', state: 'VA', \
-    summary: 'PhD in Psycology and Masters in Counseling. LPC/LCSW/PhD/MD. Specializes in mood disorders, anxiety, depression.')
+    summary: 'PhD in Psycology and Masters in Counseling. LPC/LCSW/PhD/MD. Specializes in mood disorders, anxiety, depression.', \
+    public: true)
     
   clients = Client.create(email: 'tu' + ix.to_s + '@mail.com', \
     password: 'testtest', \
@@ -34,7 +35,7 @@ if providers.errors.blank?
 else
     puts "providers seeding failed due to below reasons:"
     providers.errors.each do |x, y|
-       puts"#{x} #{y}" # x will be the field name and y will be the error on it
+       puts "#{x} #{y}" # x will be the field name and y will be the error on it
      end
 end
 
@@ -44,7 +45,7 @@ if reviews.errors.blank?
 else
     puts "ratings seeding failed due to below reasons:"
     reviews.errors.each do |x, y|
-       puts"#{x} #{y}" # x will be the field name and y will be the error on it
+       puts "#{x} #{y}" # x will be the field name and y will be the error on it
      end
 end
 
@@ -54,6 +55,6 @@ if clients.errors.blank?
 else
     puts "clients seeding failed due to below reasons:"
     clients.errors.each do |x, y|
-       puts"#{x} #{y}" # x will be the field name and y will be the error on it
+       puts "#{x} #{y}" # x will be the field name and y will be the error on it
      end
 end

@@ -1,7 +1,11 @@
 <div class="providerInfoSingle">
 	<div class="providerProfilePhoto">
-		<%= image_tag url_for(action: :show_profile_image, :id => @provider.id,
+		<% if @provider.profile_image.blank? %>
+		<%= image_tag('no_photo_user.png', size: "150x200", class: 'providerFullImage')%>
+		<%else%>
+		<%= image_tag url_for(action: :show_profile_image, id: @provider.id,
 		:controller => :providers), size: "150x200", class: 'providerFullImage'%>
+		<%end%>
 	</div>
 	<div class="providerProfileInfo label">
 		<div>
