@@ -10,18 +10,34 @@
 				<%end%>
 			</div>
 			<div class="providerSchedAppt">
-				<div class="label">
-				<% if @provider.status == "1" %>
-				Online Now!
-				<%else%>
-				Offline
-				<%end%>
+				<div class="statusBox">
+					<% if @provider.status == 2 %>
+					Online Now!
+					<%elsif @provider.status == 3 %>
+					Away
+					<%elsif @provider.status == 1%>
+					Offline
+					<%end%>
 				</div>
+				<% if @provider.status == 2 %>
+					<% if client_signed_in? %>
+						<%= link_to provider_path(@provider) do %>
+						<div class="gridLinkSchedBox gridLinkBox">
+							Talk Now!
+						</div>
+						<%end%>
+					<% else%>
+						<%= link_to new_client_session_path do %>
+						<div class="gridLinkSchedBox gridLinkBox">
+							Talk Now!
+						</div>
+						<%end%>
+					<%end%>
+				<%elsif @provider.status == 1 || @provider.status == 3 %>
 				<div class="gridLinkSchedBox gridLinkBox">
-
-					<%= link_to 'Contact This Provider', provider_path(@provider) %>
-
+					Email This Provider
 				</div>
+				<%end%>
 			</div>
 		</div>
 		<div class="column2">
@@ -60,7 +76,10 @@
 						<%= render partial: '/layouts/single_rating_control', locals: {review: review} %>
 
 						<div class="commentHeader">
+							<% if !review.heading.blank? %>
 							"<%= review.heading %>"
+							<%else%>&nbsp;
+							<%end%>
 						</div>
 					</div>
 					<div class="floatClear"></div>

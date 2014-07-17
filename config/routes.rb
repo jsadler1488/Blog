@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
    resources :clients do
      resources :reviews
+     resources :funds
   end
    get 'providers/:id/show_profile_image' => 'providers#show_profile_image'
    root 'home#index'

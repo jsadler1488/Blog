@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716162427) do
+ActiveRecord::Schema.define(version: 20140717201943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20140716162427) do
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
+
+  create_table "funds", force: true do |t|
+    t.integer "avail_amount"
+    t.string  "cc_num"
+    t.integer "client_id"
+  end
+
+  add_index "funds", ["client_id"], name: "index_funds_on_client_id", using: :btree
 
   create_table "providers", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -79,7 +87,7 @@ ActiveRecord::Schema.define(version: 20140716162427) do
     t.boolean  "service_by_chat"
     t.boolean  "service_by_email"
     t.boolean  "public"
-    t.string   "status"
+    t.integer  "status"
   end
 
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree

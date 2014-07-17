@@ -149,10 +149,25 @@ $font-stack:  Segoe UI, sans-serif;
   width: 150px;
   font-size: 16px;
   font-family: $font-stack;
-  color:$theme-forecolor;
+  color:#FFFF00;
   border-radius: 5px;  
   box-shadow: 1px 1px 8px rgba(33,33,33,0.9);  
   transition: all 0.5s;  
+  text-shadow:$text-shadow;
+  border:solid 1px #FFFF00;
+  float:left;
+  text-align:center;
+  padding:10px;  
+}
+
+.statusBox {
+  background-image: linear-gradient(#00FF00, #666666);
+  width: 150px;
+  font-size: 16px;
+  font-family: $font-stack;
+  color:#FFFF00;
+  border-radius: 5px;  
+  box-shadow: 1px 1px 8px rgba(33,33,33,0.9);  
   text-shadow:$text-shadow;
   border:solid 1px #FFFF00;
   float:left;
@@ -256,8 +271,15 @@ div.providerSchedAppt {
 }
 
 div.gridLinkSchedBox {
-  width:125px;
+  width:150px;
   font-size: 12px;
+  margin-top:10px;
+}
+
+div.verticalPad
+{
+  padding-top:10px;
+  height:10px;
 }
 
 div.providerRate {

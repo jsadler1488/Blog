@@ -9,6 +9,7 @@ class Provider < ActiveRecord::Base
   validates_format_of :city, with: ->(provider) {/\A[a-zA-Z ]*\z/i}
   validates :state, presence: true
   validates :zip, presence: true, length: {is:5}
+  validates :status, inclusion: {in: 1..3}
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validate :validate_phone, on: [:create, :update]
@@ -17,7 +18,7 @@ class Provider < ActiveRecord::Base
   validates_size_of :profile_image, maximum: 2.megabytes, message: "too large. Please limit to 2MB"
   validates_acceptance_of :terms_of_service, acceptance: true
   include Humanizer
-  attr_accessor :bypass_humanizer, :sort_by, :status
+  attr_accessor :bypass_humanizer, :sort_by
   require_human_on :create, unless: :bypass_humanizer
   include ActionView::Helpers::NumberHelper
   before_save :run_formatters

@@ -43,9 +43,11 @@
 			</div>
 			<div class="rate">
 				<div>
+					<%= link_to provider_path(p) do %>
 					<div class="gridLinkBox">
-						<%= link_to 'View Provider', provider_path(p) %>
+						View Provider
 					</div>
+					<%end%>
 				</div>
 				<div class="padToLinkBox">
 					<%= render partial: 'layouts/rate_view', locals: {p: p}%>

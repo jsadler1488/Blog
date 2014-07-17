@@ -21,10 +21,12 @@ class ProvidersController < ApplicationController
   
   def update
     @provider = Provider.find(params[:id])
-    
     if @provider.update(status_params)
-      redirect_to request.original_url
-    end
+      redirect_to :back
+      p "Saved"
+    else
+      p "Not Saved"
+    end    
   end
 
   private
