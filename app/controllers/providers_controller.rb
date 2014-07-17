@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :authenticate_client!, except: [:show_profile_image, :index, :show]
+  #before_action :authenticate_client!, except: [:show_profile_image, :index, :show]
   before_action :authenticate_provider!, except: [:show_profile_image, :index, :show]
   def index
     @providers = Provider.joins("LEFT OUTER JOIN reviews ON reviews.provider_id = providers.id") \
@@ -20,10 +20,19 @@ class ProvidersController < ApplicationController
   end
   
   def update
+    @provider = Provider.find(params[:id])
     
+    if @provider.update(status_params)
+      redirect_to request.original_url
+    end
   end
 
   private
+  
+  private
+  def status_params
+    params.require(:provider).permit(:status)
+  end
 
   def sort_order
     if params[:sort_by] == "Highest Rating"
@@ -38,7 +47,6 @@ class ProvidersController < ApplicationController
       return "service_by_email DESC NULLS LAST"
     else
       return "avg(reviews.rating) DESC NULLS LAST"
-    end
-    
+    end    
   end
 end

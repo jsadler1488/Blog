@@ -40,7 +40,8 @@
 				<span><%= link_to(edit_provider_registration_path) do %>Edit Profile<%end%></span>
 			</div>
 			<div>
-				<%= form_for current_provider do |p| %>	
+				<% @provider = current_provider %>
+				<%= form_for @provider, as: @post, method: :patch do |p| %>	
 					Status: <%= p.select(:status, options_for_select([['Offline',1], ['Online',2], ['Away',3]], selected: p.object.status),{}, {onchange: 'this.form.submit()',  class: 'status_combo_box'}) %>
 				<%end%>
 			</div>
