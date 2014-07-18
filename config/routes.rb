@@ -6,10 +6,10 @@ Rails.application.routes.draw do
    get 'privacy' => 'privacy_policy#index'
    get 'terms' => 'terms_of_use#index'
    get 'provider/:id' => 'provider#show'
+   get 'funds_required' => 'funds#funds_required'
    resources :providers do
      resources :reviews
   end
-
    resources :clients do
      resources :reviews
      resources :funds

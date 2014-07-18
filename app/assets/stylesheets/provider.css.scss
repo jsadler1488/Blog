@@ -162,7 +162,7 @@ $font-stack:  Segoe UI, sans-serif;
 
 .statusBox {
   background-image: linear-gradient(#00FF00, #666666);
-  width: 150px;
+  width: 120px;
   font-size: 16px;
   font-family: $font-stack;
   color:#FFFF00;
@@ -266,12 +266,11 @@ div.column2 {
 }
 
 div.providerSchedAppt {
-  width:250px;
-  float:left;
+  
 }
 
 div.gridLinkSchedBox {
-  width:150px;
+  width:120px;
   font-size: 12px;
   margin-top:10px;
 }
