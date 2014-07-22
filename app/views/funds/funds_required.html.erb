@@ -1,1 +1,10 @@
-You must add funds
+<div class="mainContent">
+	<div class="signUpBlockDiv">
+		<h1 class="label">Add Funds</h1>
+	</div>
+	<%= form_for(@fund, url: new_fund_path(@fund)) do |f| %>
+	<div class="mainContentPrepare">
+		<%= render partial: 'layouts/funds/apply_funds', locals: {f: f} %>
+	</div>
+	<% end %>
+</div>

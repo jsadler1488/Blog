@@ -29,7 +29,6 @@ class ProvidersController < ApplicationController
     end    
   end
 
-  private
   
   private
   def status_params

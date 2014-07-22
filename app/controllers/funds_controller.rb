@@ -1,12 +1,25 @@
 class FundsController < ApplicationController
-  def check_funds
     
-    if @fund.nil?
-      redirect_to 'funds/new'    
-    elsif @fund.avail_amount.to_i > 1000
-      redirect_to 'funds/submit_funds'
+  def new
+    @fund = Fund.new
+  end
+  def show
+    @fund = Fund.find(params[:id])
+  end
+  
+  def create
+    
+  end
+  
+  def funds_required
+    @fund = current_client.fund
+    if @fund == nil
+      @fund = Fund.new
+      @fund.client = current_client
+      p "new"
     else
-      redirect_to 'funds/funds_required'
+      p "exist"
     end
+  
   end
 end

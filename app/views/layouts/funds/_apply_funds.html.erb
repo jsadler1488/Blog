@@ -1,0 +1,57 @@
+<div class="signUpBlockDiv">
+	<div class="signUpLabelDiv">
+		<%= f.label :cc_num, "Credit Card Number:", {class: 'label'} %>
+	</div>
+	<div class="signUpInputDiv">
+		<%= f.text_field :cc_num, {class: 'text_field',autofocus: true, autocomplete: "off"}  %>
+	</div>
+	<div>
+	<img alt='Credit card logos' title='Credit card logos' src='http://payments.intuit.com/payments/landing_pages/LB/default.jsp?c=VMAD&l=H&s=1&b=666666'/>
+	</div>
+</div>
+<div class="signUpBlockDiv">
+	<div class="signUpLabelDiv">
+		<%= f.label :exp_month, "Expiration Date:", {class: 'label'} %>
+	</div>
+	<div class="signUpInputDiv">
+		<%= f.date_select :exp_date, {start_year: Date.today.year, end_year: Date.today.year + 12, order: [:month, :year], default: { year: Date.today.year+2}}, {class: 'combo_box'} %>
+	</div>
+</div>
+<div class="signUpBlockDiv">
+	<div class="signUpLabelDiv">
+		<%= f.label :cvv, "CVV:", {class: 'label'} %>
+	</div>
+	<div class="signUpInputDiv">
+		<%= f.text_field :cvv, {class: 'text_field',autofocus: true, autocomplete: "off"}  %>
+	</div>	
+</div>
+<div class="signUpLabelDiv">
+		<%= f.label :name_on_card, "Name as it appears on card:", {class: 'label'} %>
+	</div>
+	<div class="signUpInputDiv">
+		<%= f.text_field :name_on_card, {class: 'text_field',autofocus: true, autocomplete: "off"}  %>
+	</div>
+<div class="signUpBlockDiv">
+	<div class="signUpInputDiv">
+		<%= f.check_box :use_different_address, {class: 'check_box'}  %>
+		<%= f.label :use_different_address, "Address is different from account address", {class: 'check_box_label label', oncheck: "specifyCheck();"}%>		
+	</div>
+</div>
+<div id="different_address" style="display:none">Different Address</div>
+
+<% if f.object.new_record? %>
+New Record
+<%else%>
+Existing Record
+<%end%>
+<script type="text/javascript">
+  var checkbox = document.getElementById('fund_use_different_address');
+  var details_div = document.getElementById('different_address');
+  checkbox.onchange = function() {
+     if(this.checked) {
+       details_div.style['display'] = 'block';
+     } else {
+       details_div.style['display'] = 'none';
+     }
+  };
+</script>

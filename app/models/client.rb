@@ -1,6 +1,6 @@
 class Client < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
-  has_many :funds, dependent: :destroy
+  has_one :fund, dependent: :destroy
   validates :first_name, presence: true, length: {minimum:2, maximum: 50}
   validates :last_name, presence: true, length: {minimum:2, maximum: 50}
   validates :birthdate, presence: true

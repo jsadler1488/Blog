@@ -7,13 +7,15 @@ Rails.application.routes.draw do
    get 'terms' => 'terms_of_use#index'
    get 'provider/:id' => 'provider#show'
    get 'funds_required' => 'funds#funds_required'
+   get 'funds_submit' => 'funds#funds_submit'
    resources :providers do
      resources :reviews
   end
    resources :clients do
      resources :reviews
-     resources :funds
   end
+  
+     resources :funds
    get 'providers/:id/show_profile_image' => 'providers#show_profile_image'
    root 'home#index'
 

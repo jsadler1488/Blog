@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717201943) do
+ActiveRecord::Schema.define(version: 20140722200907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,20 +46,28 @@ ActiveRecord::Schema.define(version: 20140717201943) do
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "funds", force: true do |t|
-    t.integer "avail_amount"
     t.string  "cc_num"
     t.integer "client_id"
+    t.decimal "avail_amount", precision: 8, scale: 2
+    t.string  "exp_date"
+    t.string  "cvv"
+    t.string  "address1"
+    t.string  "address2"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip"
+    t.string  "name_on_card"
   end
 
   add_index "funds", ["client_id"], name: "index_funds_on_client_id", using: :btree
 
   create_table "providers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                          default: "", null: false
+    t.string   "encrypted_password",                             default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                  default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -73,7 +81,6 @@ ActiveRecord::Schema.define(version: 20140717201943) do
     t.binary   "profile_image"
     t.string   "filename"
     t.string   "content_type"
-    t.decimal  "rate"
     t.string   "unit"
     t.text     "summary"
     t.string   "honorific"
@@ -88,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140717201943) do
     t.boolean  "service_by_email"
     t.boolean  "public"
     t.integer  "status"
+    t.decimal  "rate",                   precision: 8, scale: 2
   end
 
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree

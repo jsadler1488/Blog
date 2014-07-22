@@ -12,32 +12,14 @@
 			<div class="providerSchedAppt">
 				<div class="statusBox">
 					<% if @provider.status == 2 %>
-					Online Now!
+					Available Now!
 					<%elsif @provider.status == 3 %>
-					Away
+					Unavailable
 					<%elsif @provider.status == 1%>
 					Offline
 					<%end%>
 				</div>
-				<% if @provider.status == 2 %>
-					<% if client_signed_in? %>
-						<%= link_to :check_funds do %>
-						<div class="gridLinkSchedBox gridLinkBox">
-							Talk Now!
-						</div>
-						<%end%>
-					<% else%>
-						<%= link_to new_client_session_path do %>
-						<div class="gridLinkSchedBox gridLinkBox">
-							Talk Now!
-						</div>
-						<%end%>
-					<%end%>
-				<%elsif @provider.status == 1 || @provider.status == 3 %>
-				<div class="gridLinkSchedBox gridLinkBox">
-					Email This Provider
-				</div>
-				<%end%>
+				<%= render partial: 'layouts/check_provider_status/check_provider_status' %>
 			</div>
 		</div>
 		<div class="column2">
